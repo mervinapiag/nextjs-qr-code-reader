@@ -5,7 +5,7 @@ const CardComponent = ({ person }) => {
 
   return (
     <div style={styles.card}>
-      <img src={`https://qr-code-generator-oe2i.onrender.com${imageUrl}`} alt={person.username} style={styles.image} />
+      <img src={`https://strapi-qr-code-generator-production.up.railway.app${imageUrl}`} alt={person.username} style={styles.image} />
       <div style={styles.details}>
         <h2 style={styles.name}>{`Name: ${person.username}`}</h2>
         <p style={styles.email}>{`Email: ${person.email}`}</p>

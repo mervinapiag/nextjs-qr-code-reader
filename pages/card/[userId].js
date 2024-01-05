@@ -11,7 +11,7 @@ const CardPage = () => {
   useEffect(() => {
     const fetchPersonData = async () => {
       try {
-        const response = await fetch(`https://qr-code-generator-oe2i.onrender.com/api/users/${userId}?populate=picture`);
+        const response = await fetch(`https://strapi-qr-code-generator-production.up.railway.app/api/users/${userId}?populate=picture`);
         const data = await response.json();
         console.log(data);
         setPerson(data);
