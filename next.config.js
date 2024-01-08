@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['https://mellow-pavlova-27c788.netlify.app'],
+   domains: ['strapi-qr-code-generator-production.up.railway.app'],
   },
 }
 
