@@ -178,7 +178,9 @@ const styles = {
     border: 'none',
     display: 'flex',
     alignItems: 'flex-start',
-    width: '50%',
+    // width: '50%',
+    width: '200px', // Fixed width or adjust as needed
+    maxWidth: '100%', // Ensure it doesn't exceed the container's width
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
   icon: {
