@@ -17,7 +17,8 @@ const parisienne  = Parisienne ({
 
 const CardComponent = ({ person }) => {
   const imageUrl = person.picture?.url;
-  const apiUrl = `http://localhost:1337${imageUrl}`;
+   const apiUrl = `https://strapi-qr-code-generator-production.up.railway.app${imageUrl}`;
+  // const apiUrl = `http://localhost:1337${imageUrl}`;
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
