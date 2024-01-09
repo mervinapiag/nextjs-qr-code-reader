@@ -12,7 +12,6 @@ const parisienne  = Parisienne ({
 });
 
 const MarkerComponent = ({ deceased }) => {
-    console.log(deceased);
     // const apiUrl = `https://strapi-qr-code-generator-production.up.railway.app${imageUrl}`;
 //   const apiUrl = `http://localhost:1337/api/card`;
 
@@ -21,6 +20,8 @@ const MarkerComponent = ({ deceased }) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', options);
   };
+
+  const fullName = deceased.full_name;
 
   const urls = (deceasedId) => {
     switch(deceasedId) {
@@ -44,7 +45,7 @@ const MarkerComponent = ({ deceased }) => {
             <button style={styles.button}>
               {/* <FontAwesomeIcon icon={faFacebook} style={styles.icon} /> */}
               {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
-              <span style={styles.iconText}>{deceased.full_name}</span>
+              <span style={styles.iconText}>{fullName.toUpperCase()}</span>
             </button>
           </Link>
         </div>
@@ -75,8 +76,9 @@ const styles = {
 
   iconText: {
     textAlign: 'center',
-    fontSize: '20px',
+    fontSize: '15px',
     fontWeight: '600',
+    textTransform: 'capitalize'
   }
 };
 
