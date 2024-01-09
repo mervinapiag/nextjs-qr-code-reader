@@ -4,7 +4,6 @@ import { Parisienne,   } from "@next/font/google";
 import Link from 'next/link';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChrome, faFacebook, faTelegram, faViber, faWebflow } from '@fortawesome/free-brands-svg-icons';
 
 const parisienne  = Parisienne ({
   weight: "400",
@@ -44,7 +43,8 @@ const MarkerComponent = ({ deceased }) => {
            <Link href={urls(deceased.id)} passHref>
             <button style={styles.button}>
               {/* <FontAwesomeIcon icon={faFacebook} style={styles.icon} /> */}
-              <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span>
+              {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
+              <span style={styles.iconText}>{deceased.full_name}</span>
             </button>
           </Link>
         </div>
@@ -77,7 +77,6 @@ const styles = {
     textAlign: 'center',
     fontSize: '20px',
     fontWeight: '600',
-    // fontStyle: 'bold'
   }
 };
 
