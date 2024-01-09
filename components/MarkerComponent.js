@@ -38,7 +38,7 @@ const MarkerComponent = ({ marker }) => {
       <div style={styles.details}>
         {/* <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2> */}
         {/* <h3 style={styles.date}>{`${formatDate(person.born)}   -   ${formatDate(person.died)}`}</h3> */}
-        <h3 style={styles.motto}>{`"${marker.motto}"`}</h3>
+        {/* <h3 style={styles.motto}>{`"${marker.motto}"`}</h3> */}
         
         <div style={styles.buttonsContainer}>
             {marker.deceased_names.map((deceased, index) => (
@@ -134,7 +134,7 @@ const styles = {
   },
   buttonsContainer: {
     // textAlign: 'center',
-    marginTop: '30px', // Adjust as needed
+    marginTop: '20px', // Adjust as needed
     marginBottom: '50px'
   },
   button: {
