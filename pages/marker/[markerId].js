@@ -11,8 +11,8 @@ const MarkerPage = () => {
   useEffect(() => {
     const fetchPersonData = async () => {
       try {
-        const fetchAPI = `http://localhost:1337/api/markers/${markerId}`;
-        // const fetchAPI = `https://forestlake-markers-production.up.railway.app/api/markers/${markerId}`;
+        // const fetchAPI = `http://localhost:1337/api/markers/${markerId}`;
+        const fetchAPI = `https://forestlake-markers-production.up.railway.app/api/markers/${markerId}`;
         const response = await fetch(fetchAPI);
         const data = await response.json();
         console.log(data);
