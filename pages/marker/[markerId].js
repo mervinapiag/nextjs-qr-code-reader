@@ -1,40 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import CardComponent from '../../components/CardComponent';
+import MarkerComponent from '../../components/MarkerComponent';
 
-const CardPage = () => {
+const MarkerPage = () => {
   const router = useRouter();
-  const { userId } = router.query;
+  const { markerId } = router.query;
 
-  const [person, setPerson] = useState(null);
+  const [marker, setMarker] = useState(null);
 
   useEffect(() => {
     const fetchPersonData = async () => {
       try {
-        // const fetchAPI = `http://localhost:1337/api/users/${userId}?populate=picture`;
-        const fetchAPI = `https://forestlake-markers-production.up.railway.app/api/users/${userId}?populate=picture`;
+        // const fetchAPI = `http://localhost:1337/api/markers/${markerId}`;
+        const fetchAPI = `https://forestlake-markers-production.up.railway.app/api/markers/${markerId}`;
         const response = await fetch(fetchAPI);
         const data = await response.json();
         console.log(data);
-        setPerson(data);
+        setMarker(data);
       } catch (error) {
         console.error('Error fetching person data:', error);
       }
     };
 
-    if (userId) {
+    if (markerId) {
       fetchPersonData();
     }
-  }, [userId]);
+  }, [markerId]);
 
-  if (!person) {
+  if (!marker) {
     return <div>Loading...</div>;
   }
 
   return (
     <div style={styles.pageContainer}>
       <div style={styles.centeredCard}>
-        <CardComponent person={person} />
+        <MarkerComponent marker={marker} />
       </div>
     </div>
   );
@@ -58,4 +58,4 @@ const styles = {
   },
 };
 
-export default CardPage;
+export default MarkerPage;

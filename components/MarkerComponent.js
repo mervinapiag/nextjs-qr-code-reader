@@ -8,18 +8,14 @@ import Link from 'next/link';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChrome, faFacebook, faTelegram, faViber, faWebflow } from '@fortawesome/free-brands-svg-icons';
-
+import DeceasedComponent from './DeceasedComponent';
 const parisienne  = Parisienne ({
   weight: "400",
   display: "swap",
   subsets: ["latin"] 
 });
 
-const CardComponent = ({ person }) => {
-  console.log(person);
-  const imageUrl = person.picture?.url;
-   const apiUrl = `https://forestlake-markers-production.up.railway.app${imageUrl}`;
-  // const apiUrl = `http://localhost:1337${imageUrl}`;
+const MarkerComponent = ({ marker }) => {
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -35,49 +31,20 @@ const CardComponent = ({ person }) => {
         src={logo}
         width={120}
         height={120}
-        alt="Picture of the author"
+        alt="Forestlake LOGO"
       />
       </div>
 
-      <div style={styles.circularImageContainer}>
-        <Image
-          src={apiUrl}
-          width={100}
-          height={100}
-          alt="Picture of the author"
-          style={styles.circularImage}
-        />
-      </div>
-    
       <div style={styles.details}>
-        <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2>
-        <h3 style={styles.date}>{`${formatDate(person.date_born)}   -   ${formatDate(person.date_died)}`}</h3>
-        <h3 style={styles.motto}>{`"${person.motto}"`}</h3>
+        {/* <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2> */}
+        {/* <h3 style={styles.date}>{`${formatDate(person.born)}   -   ${formatDate(person.died)}`}</h3> */}
+        <h3 style={styles.motto}>{`"${marker.motto}"`}</h3>
         
-        {/* <div style={styles.buttonsContainer}>
-
-           <Link href={person.facebook_url} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faFacebook} style={styles.icon} />
-              <span style={styles.iconText}>Facebook</span>
-            </button>
-          </Link>
-
-          <Link href={person.orbituary_page} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faChrome} style={styles.icon} />
-              <span>Orbituary Page</span>
-            </button>
-          </Link>
-
-          <Link href={person.contact_us} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faViber} style={styles.icon} />
-              <span>Contact Us</span>
-            </button>
-          </Link>
-
-        </div> */}
+        <div style={styles.buttonsContainer}>
+            {marker.deceased_names.map((deceased, index) => (
+                <DeceasedComponent key={index} deceased={deceased} />
+            ))}
+        </div>
 
       </div>
     </div>
@@ -193,4 +160,4 @@ const styles = {
   }
 };
 
-export default CardComponent;
+export default MarkerComponent;
