@@ -1,6 +1,8 @@
 import React from 'react';
 import bg from './images/bg.png';
+import bg2 from './images/bg_2.png';
 import logo from './images/fl_logo.png';
+import logo2 from './images/fl_logo_2.png';
 import Image from 'next/image'
 import { Parisienne,   } from "@next/font/google";
 import Link from 'next/link';
@@ -28,17 +30,19 @@ const MarkerComponent = ({ marker }) => {
     <div style={{ ...styles.card}}>
       <div style={styles.logoContainer}>
         <Image
-        src={logo}
-        width={120}
-        height={120}
+        src={logo2}
+        width={200}
+        height={200}
         alt="Forestlake LOGO"
       />
       </div>
 
+      <h3 className={parisienne.className} style={styles.motto}>{`In loving memory of`}</h3>
+
       <div style={styles.details}>
         {/* <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2> */}
         {/* <h3 style={styles.date}>{`${formatDate(person.born)}   -   ${formatDate(person.died)}`}</h3> */}
-        {/* <h3 style={styles.motto}>{`"${marker.motto}"`}</h3> */}
+
         
         <div style={styles.buttonsContainer}>
             {marker.deceased_names.map((deceased, index) => (
@@ -53,6 +57,7 @@ const MarkerComponent = ({ marker }) => {
 
 const styles = {
   card: {
+    padding: '20px',
     display: 'flex',
     flexDirection: 'column',
     border: '1px solid #4CAF50',
@@ -62,11 +67,12 @@ const styles = {
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
     width: '100%',
+    // height:'auto',
     margin: '20px auto',
     // fontFamily: 'Baskerville',
     // fontFamily: 'Baskerville, serif',
     fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
-    backgroundImage: `url(${bg.src})`,
+    backgroundImage: `url(${bg2.src})`,
     backgroundSize: 'cover', // Adjust to 'contain' if needed
     backgroundSize: '100% 100%',
     backgroundPosition: 'center', // Adjust as needed
@@ -126,16 +132,17 @@ const styles = {
   },
   motto: {
     textAlign: 'center',
-    fontFamily: 'Arial, sans-serif',
-    fontSize: '0.5em',
+    fontFamily: '__Parisienne_4197db',
+    fontSize: '25px',
+    fontWeight: 600,
     fontStyle: 'italic',
-    color: '#555',
-    margin: '10px 0',
+    color: '#01683A',
+    // margin: '20px 0',
   },
   buttonsContainer: {
     // textAlign: 'center',
-    marginTop: '20px', // Adjust as needed
-    marginBottom: '50px'
+    // marginTop: 'px',
+    marginBottom: '20px'
   },
   button: {
     backgroundColor: 'white',
@@ -147,8 +154,8 @@ const styles = {
     display: 'flex',
     alignItems: 'flex-start',
     // width: '50%',
-    width: '200px', // Fixed width or adjust as needed
-    maxWidth: '100%', // Ensure it doesn't exceed the container's width
+    width: '200px', 
+    maxWidth: '100%',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
   icon: {

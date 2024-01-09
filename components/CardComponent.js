@@ -1,6 +1,8 @@
 import React from 'react';
 import bg from './images/bg.png';
+import bg2 from './images/bg_2.png';
 import logo from './images/fl_logo.png';
+import logo2 from './images/fl_logo_2.png';
 import Image from 'next/image'
 import { Parisienne,   } from "@next/font/google";
 import Link from 'next/link';
@@ -18,8 +20,8 @@ const parisienne  = Parisienne ({
 const CardComponent = ({ person }) => {
   console.log(person);
   const imageUrl = person.picture?.url;
-   const apiUrl = `https://forestlake-markers-production.up.railway.app${imageUrl}`;
-  // const apiUrl = `http://localhost:1337${imageUrl}`;
+  //  const apiUrl = `https://forestlake-markers-production.up.railway.app${imageUrl}`;
+  const apiUrl = `http://localhost:1337${imageUrl}`;
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -32,7 +34,7 @@ const CardComponent = ({ person }) => {
     <div style={{ ...styles.card}}>
       <div style={styles.logoContainer}>
         <Image
-        src={logo}
+        src={logo2}
         width={120}
         height={120}
         alt="Picture of the author"
@@ -86,6 +88,7 @@ const CardComponent = ({ person }) => {
 
 const styles = {
   card: {
+    padding: '20px',
     display: 'flex',
     flexDirection: 'column',
     border: '1px solid #4CAF50',
@@ -95,11 +98,12 @@ const styles = {
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
     width: '100%',
+    // height:'auto',
     margin: '20px auto',
     // fontFamily: 'Baskerville',
     // fontFamily: 'Baskerville, serif',
     fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
-    backgroundImage: `url(${bg.src})`,
+    backgroundImage: `url(${bg2.src})`,
     backgroundSize: 'cover', // Adjust to 'contain' if needed
     backgroundSize: '100% 100%',
     backgroundPosition: 'center', // Adjust as needed
@@ -148,11 +152,12 @@ const styles = {
     color: '#333',
   },
   date: {
-    fontSize: '0.8em',
-    marginBottom: '8px',
+    fontSize: '15px',
+    marginBottom: '20px',
     color: '#333',
     // padding: '0 5px',
     whiteSpace: 'pre',
+    marginTop: '12px'
   },
   email: {
     color: '#555',
@@ -160,10 +165,13 @@ const styles = {
   motto: {
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
-    fontSize: '0.5em',
+    fontSize: '15px',
     fontStyle: 'italic',
     color: '#555',
-    margin: '10px 0',
+    // margin: '20px 0',
+    marginTop: '30px',
+    marginBottom: '50px',
+    padding: '15px'
   },
   buttonsContainer: {
     // textAlign: 'center',

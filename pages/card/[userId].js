@@ -11,8 +11,8 @@ const CardPage = () => {
   useEffect(() => {
     const fetchPersonData = async () => {
       try {
-        // const fetchAPI = `http://localhost:1337/api/users/${userId}?populate=picture`;
-        const fetchAPI = `https://forestlake-markers-production.up.railway.app/api/users/${userId}?populate=picture`;
+        const fetchAPI = `http://localhost:1337/api/users/${userId}?populate=picture`;
+        // const fetchAPI = `https://forestlake-markers-production.up.railway.app/api/users/${userId}?populate=picture`;
         const response = await fetch(fetchAPI);
         const data = await response.json();
         console.log(data);
@@ -47,13 +47,15 @@ const styles = {
     alignItems: 'center',
     // justifyContent: 'center',
     minHeight: '100vh',
+    // height: 'auto'
     // width: '100%', // Set width to 100% to center the container
   },
   centeredCard: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '80%',
+    width: '90%',
+    // height: 'auto',
     maxWidth: '800px', // Adjust the maximum width as needed
   },
 };
