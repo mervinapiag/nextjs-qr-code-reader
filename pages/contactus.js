@@ -91,7 +91,10 @@ const ContactUs = () => {
       margin: '0 auto',
       marginBottom: '20px',
     },
-  
+    additionalText: {
+      fontSize: '14px',
+      color: 'red',
+    }
   };
 
   return (
@@ -117,28 +120,29 @@ const ContactUs = () => {
           <label htmlFor="frm-inquiryType">Type of Inquiry</label>
           <select id="frm-inquiryType" name="inquiryType" required style={styles.input}>
             <option value="complaint">Complaint</option>
-            <option value="reportBrokenMarker">Report Broken Marker (Upload Pic)</option>
-            <option value="rental">Rental (Date)</option>
+            <option value="reportBrokenMarker">Report Broken Marker</option>
+            <option value="rental">Rental</option>
             <option value="purchaseFlowersCandles">Purchase Flowers and Candles</option>
           </select>
         </div>
 
         {formData.inquiryType === 'reportBrokenMarker' && (
           <div>
-            <label htmlFor="uploadPic">Upload Picture (for Report Broken Marker):</label>
+            <label style={{...styles.additionalText}} htmlFor="uploadPic">Please upload a picture of the broken marker for our reference.</label>
             <input type="file" id="uploadPic" name="uploadPic" onChange={handleFileChange} />
           </div>
         )}
 
-        {formData.inquiryType === 'rental' && (
+        {(formData.inquiryType === 'rental' || formData.inquiryType === 'purchaseFlowersCandles') && (
           <div>
-            <label htmlFor="uploadPic">Date: </label>
+            <label style={{...styles.additionalText}} htmlFor="uploadPic">Please give us the date of your intended visit to the park.</label>
+            <br />
             <input id="frm-date" type="date" name="date" autoComplete="tel" required style={styles.input} />
           </div>
         )}
-
+        <br />
         <div style={{ ...styles.block, ...styles.message }}>
-          <label htmlFor="frm-message">Message</label>
+          <label htmlFor="frm-message">Please let us know how we can be of service.</label>
           <textarea id="frm-message" rows="6" name="message" style={styles.textarea}></textarea>
         </div>
         <div style={{ ...styles.block, ...styles.button }}>

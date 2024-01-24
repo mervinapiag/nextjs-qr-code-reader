@@ -12,9 +12,6 @@ const parisienne  = Parisienne ({
 });
 
 const MarkerComponent = ({ deceased }) => {
-    // const apiUrl = `https://strapi-qr-code-generator-production.up.railway.app${imageUrl}`;
-//   const apiUrl = `http://localhost:1337/api/card`;
-
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     const date = new Date(dateString);
