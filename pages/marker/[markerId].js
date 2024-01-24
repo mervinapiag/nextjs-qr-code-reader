@@ -79,17 +79,19 @@ const MarkerPage = observer(() => {
 
         <div style={styles.modalContent}>
           <p style={styles.garethText}> 
-          Greetings! As a valued member of Forest Lake Memorial Parks Biñan, we are informing you that our Libre Burol Offering just got even better. With our aim to assist families during trying times, we now offer the following:
+          Our Libre Burol Offering Just Got Better.
           <br />  <br />
-              a. Full Funeral Service (includes Body Retrieval and Embalming)
+          Receive the following with every interment:
+          <br />  <br />
+              a. Full Funeral Service
               <br />  <br />
-              b. Casketing (use of a Standard Wood Casket)
+              b. Body Retrieval and Embalming
               <br />  <br />
-              c. 4 Days and 3 Nights (Standard Viewing Chapel)
+              c. 4 Days and 3 Nights (Airconditioned Standard Viewing Chapel)
               <br />  <br />
-              d. Free use of Funeral Hearse upon actual interment
+              d. Funeral Hearse upon actual interment
               <br />  <br />
-              For any questions about our Libre Burol offering or if you have an immediate need for funeral service, you may call us at 0917-888-9955 or 0918-824-2735.
+              For any questions, you may call us at <strong>0917-888-9955</strong> or <strong>0918-824-2735</strong>
           </p>
 
           <div style={styles.managementText}>
