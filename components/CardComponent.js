@@ -20,8 +20,8 @@ const parisienne  = Parisienne ({
 const CardComponent = ({ person }) => {
   console.log(person);
   const imageUrl = person.picture?.url;
-   const apiUrl = `https://forestlake-markers-production.up.railway.app${imageUrl}`;
-  // const apiUrl = `http://localhost:1337${imageUrl}`;
+  //  const apiUrl = `https://forestlake-markers-production.up.railway.app${imageUrl}`;
+  const apiUrl = `http://localhost:1337${imageUrl}`;
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -80,7 +80,12 @@ const CardComponent = ({ person }) => {
           </Link>
 
         </div> */}
-
+        <div style={styles.fbIconContainer}>
+          <Link href={person.facebook_url} passHref>
+            <FontAwesomeIcon icon={faFacebook} style={styles.fbIcon} />
+            <span style={styles.fbIconText}></span>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -98,24 +103,21 @@ const styles = {
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
     width: '100%',
-    // height:'auto',
     margin: '20px auto',
-    // fontFamily: 'Baskerville',
-    // fontFamily: 'Baskerville, serif',
     fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
     backgroundImage: `url(${bg2.src})`,
-    backgroundSize: 'cover', // Adjust to 'contain' if needed
+    backgroundSize: 'cover',
     backgroundSize: '100% 100%',
-    backgroundPosition: 'center', // Adjust as needed
-    backgroundRepeat: 'no-repeat', // Adjust as needed
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
   },
   circularImageContainer: {
     textAlign: 'center',
-    marginTop: '5px', // Adjust as needed
+    marginTop: '5px',
   },
   circularImage: {
-    width: '150px', // Adjust the width as needed
-    height: '150px', // Maintain the aspect ratio
+    width: '150px',
+    height: '150px',
     borderRadius: '50%',
     objectFit: 'cover',
     border: '2px solid rgb(200, 178, 51)',
@@ -155,7 +157,6 @@ const styles = {
     fontSize: '15px',
     marginBottom: '20px',
     color: '#333',
-    // padding: '0 5px',
     whiteSpace: 'pre',
     marginTop: '12px'
   },
@@ -198,7 +199,22 @@ const styles = {
   },
   iconText: {
     textAlign: 'center'
-  }
+  },
+  fbIconContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '10px',
+  },
+  fbIcon: {
+    color: '#3b5998',
+    fontSize: '35px',
+    marginRight: '10px',
+  },
+  fbIconText: {
+    fontSize: '30px',
+    color: '#555',
+  },
 };
 
 export default CardComponent;

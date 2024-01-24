@@ -24,16 +24,17 @@ const MarkerComponent = ({ deceased }) => {
   const fullName = deceased.full_name;
 
   const urls = (deceasedId) => {
-    switch(deceasedId) {
-        case 1:
-            return deceased.facebook_url
-        case 2:
-            return `/card/${deceased.id}`
-        case 3: 
-            return deceased.orbituary_page
-        default:
-            return null
-    }
+    return `/card/${deceased.id}`;
+    // switch(deceasedId) {
+    //     case 1:
+    //         return deceased.facebook_url
+    //     case 2:
+    //         return `/card/${deceased.id}`
+    //     case 3: 
+    //         return deceased.orbituary_page
+    //     default:
+    //         return null
+    // }
   }
   
   return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import bg from './images/bg.png';
 import bg2 from './images/bg_2.png';
 import logo from './images/fl_logo.png';
 import logo2 from './images/fl_logo_2.png';
@@ -9,7 +8,7 @@ import Link from 'next/link';
 // import '@fortawesome/fontawesome-svg-core/styles.css
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChrome, faFacebook, faTelegram, faViber, faWebflow } from '@fortawesome/free-brands-svg-icons';
+import { faChrome, faFacebook, faTelegram, faViber, faWebflow, faPhone  } from '@fortawesome/free-brands-svg-icons';
 import DeceasedComponent from './DeceasedComponent';
 const parisienne  = Parisienne ({
   weight: "400",
@@ -48,6 +47,14 @@ const MarkerComponent = ({ marker }) => {
             {marker.deceased_names.map((deceased, index) => (
                 <DeceasedComponent key={index} deceased={deceased} />
             ))}
+            <br />
+            <Link href='/contactus' passHref>
+              <button style={styles.buttonContactUs}>
+                <FontAwesomeIcon icon={faViber} style={styles.icon} />
+                {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
+                <span style={styles.iconText}>Contact Us</span>
+              </button>
+            </Link>
         </div>
 
       </div>
@@ -163,8 +170,26 @@ const styles = {
     marginRight: '10px',
   },
   iconText: {
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+    fontSize: '15px',
+    fontWeight: '600',
+  },
+  buttonContactUs: {
+    backgroundColor: 'white',
+    padding: '10px 20px',
+    margin: '20px auto 10px',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    border: 'none',
+    display: 'flex',
+    alignItems: 'flex-start',
+    width: '200px',
+    maxWidth: '100%',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
+
 };
 
 export default MarkerComponent;
