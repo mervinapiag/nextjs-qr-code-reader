@@ -5,7 +5,7 @@ import axios from "axios";
 
 export class Main {
   localMode = false;
-  baseURL = "https://forestlake-markers-production.up.railway.app";
+  baseURL = "https://forestlakeparks-qr-code-production.up.railway.app";
     //  baseURL = "http://localhost:1337";
 
   constructor() {
