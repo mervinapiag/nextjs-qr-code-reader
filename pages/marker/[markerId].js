@@ -65,13 +65,13 @@ const MarkerPage = observer(() => {
 
         <div style={styles.modalContent}>
           <p style={styles.garethText}> 
-          Our Libre Burol Offering Just Got Better.
+          Discover Forest Lake's Libre Burol Offer
           <br />  <br />
           Receive the following with every interment:
           <br />  <br />
               <strong>a</strong>. Full Funeral Service<br />
               <strong>b</strong>. Body Retrieval and Embalming<br />
-              <strong>c</strong>. 4 Days and 3 Nights (Airconditioned Standard Viewing Chapel)<br />
+              <strong>c</strong>. 4 Days and 3 Nights<br />
               <strong>d</strong>. Funeral Hearse upon actual interment<br /><br />
               For any questions, you may call us at <strong>0917-888-9955</strong> or <strong>0918-824-2735</strong>
           </p>
