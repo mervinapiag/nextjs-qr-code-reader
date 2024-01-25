@@ -44,7 +44,7 @@ const MarkerComponent = ({ marker }) => {
 
         
         <div style={styles.buttonsContainer}>
-            {marker.deceased_names.map((deceased, index) => (
+            {marker.deceased.map((deceased, index) => (
                 <DeceasedComponent key={index} deceased={deceased} />
             ))}
             <br />
