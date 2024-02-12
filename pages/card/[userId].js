@@ -12,7 +12,7 @@ const CardPage = () => {
     const fetchPersonData = async () => {
       try {
         // const fetchAPI = `http://localhost:1337/api/deceaseds/${userId}`;
-        const fetchAPI = `https://forestlakeparks-qr-code-production.up.railway.app/api/deceaseds/${userId}`;
+        const fetchAPI = `http://13.250.104.118:1337/api/deceaseds/${userId}`;
         const response = await fetch(fetchAPI);
         const data = await response.json();
         setPerson(data);

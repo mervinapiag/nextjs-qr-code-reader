@@ -20,7 +20,8 @@ const parisienne  = Parisienne ({
 const CardComponent = ({ person }) => {
 
   const imageUrl = person.picture?.url;
-  const apiUrl = `https://forestlakeparks-qr-code-production.up.railway.app${imageUrl}`;
+  // const apiUrl = `https://forestlakeparks-qr-code-production.up.railway.app${imageUrl}`;
+  const apiUrl = `http://13.250.104.118:1337${imageUrl}`;
   // const apiUrl = `http://localhost:1337${imageUrl}`;
 
   const formatDate = (dateString) => {
