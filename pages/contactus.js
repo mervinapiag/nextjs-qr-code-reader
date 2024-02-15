@@ -1,26 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 
 import logo2 from '../components/images/fl_logo_2.png';
 import Image from 'next/image';
+import MainStore from "../store/MainStore";
 const ContactUs = () => {
+  const store = useContext(MainStore);
+  const [file, setfile] = useState([]);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [name, setName] = useState('');
+  const [contactNumber, setContactNumber] = useState('');
+  const [inquiryType, setInquiryType] = useState('');
+  const [message, setMessage] = useState('');
+  const [rentalDate, setRentalDate] = useState(null);
 
-  const [formData, setFormData] = useState({
-    name: '',
-    contactNumber: '',
-    inquiryType: 'complaint',
-    uploadPic: null,
-    rentalDate: '',
-    message: '',
-  });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const onFilesChange = (files) => {
+    console.log(files[0]);
+    setfile(files[0]);
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setFormData({ ...formData, uploadPic: file });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+   store._sendContactUs(
+    {
+      name, 
+      contactNumber, 
+      inquiryType,
+      message,
+      rentalDate
+    }, file)
+        .then((res) => {
+            if(res.status) {
+              setSuccessMessage('Form submitted successfully!')
+              setName('');
+              setInquiryType('complaint');
+              setRentalDate('');
+              setMessage('');
+              setContactNumber('');
+            }
+        });
+  };
+
+  const handleDateChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const styles = {
@@ -99,7 +122,8 @@ const ContactUs = () => {
 
   return (
     <div style={styles.html}>
-      <form style={styles.container} onChange={handleInputChange}>
+      <form style={styles.container} onSubmit={handleSubmit}>
+      
       <Image
             src={logo2}
             width={150}
@@ -110,44 +134,88 @@ const ContactUs = () => {
         <h1 style={styles.h1}>Contact Us</h1>
         <div style={{ ...styles.block, ...styles.email }}>
           <label htmlFor="frm-name">Name</label>
-          <input id="frm-name" type="text" name="name" autoComplete="email" required style={styles.input} />
+          <input 
+            id="frm-name" 
+            type="text" 
+            name="name" 
+            autoComplete="email" 
+            required 
+            style={styles.input} 
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
         <div style={{ ...styles.block, ...styles.phone }}>
           <label htmlFor="frm-phone">Contact number</label>
-          <input id="frm-phone" type="text" name="phone" autoComplete="tel" required style={styles.input} />
+          <input 
+            id="frm-phone" 
+            type="text" 
+            name="phone" 
+            autoComplete="tel" 
+            required 
+            style={styles.input} 
+            value={contactNumber} 
+            onChange={(e) => setContactNumber(e.target.value)}
+            />
         </div>
         <div style={{ ...styles.block, ...styles.phone }}>
           <label htmlFor="frm-inquiryType">Type of Inquiry</label>
-          <select id="frm-inquiryType" name="inquiryType" required style={styles.input}>
+          <select 
+            id="frm-inquiryType" 
+            name="inquiryType" 
+            required 
+            style={styles.input}
+            value={inquiryType}
+            onChange={(e) => setInquiryType(e.target.value)}
+          >
             <option value="complaint">Complaint</option>
-            <option value="reportBrokenMarker">Report Broken Marker</option>
+            <option value="report_broken_marker">Report Broken Marker</option>
             <option value="rental">Rental</option>
-            <option value="purchaseFlowersCandles">Purchase Flowers and Candles</option>
+            <option value="purchase_flower_candle">Purchase Flowers and Candles</option>
           </select>
         </div>
 
-        {formData.inquiryType === 'reportBrokenMarker' && (
+        {inquiryType === 'report_broken_marker' && (
           <div>
             <label style={{...styles.additionalText}} htmlFor="uploadPic">Please upload a picture of the broken marker for our reference.</label>
-            <input type="file" id="uploadPic" name="uploadPic" onChange={handleFileChange} />
+            <input type="file" id="uploadPic" name="uploadPic" onChange={(e) => onFilesChange(e.target.files)} />
           </div>
         )}
 
-        {(formData.inquiryType === 'rental' || formData.inquiryType === 'purchaseFlowersCandles') && (
+        {(inquiryType === 'rental' || inquiryType === 'purchase_flower_candle') && (
           <div>
             <label style={{...styles.additionalText}} htmlFor="uploadPic">Please give us the date of your intended visit to the park.</label>
             <br />
-            <input id="frm-date" type="date" name="date" autoComplete="tel" required style={styles.input} />
+            <input 
+              id="frm-date" 
+              type="date" 
+              name="rentalDate" 
+              autoComplete="tel" 
+              required 
+              style={styles.input}  
+              onChange={(e) => setRentalDate(e.target.value)}
+              value={rentalDate}
+              />
           </div>
         )}
         <br />
         <div style={{ ...styles.block, ...styles.message }}>
           <label htmlFor="frm-message">Please let us know how we can be of service.</label>
-          <textarea id="frm-message" rows="6" name="message" style={styles.textarea}></textarea>
+          <textarea 
+            id="frm-message" 
+            rows="6" 
+            name="message" 
+            style={styles.textarea}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          >
+         
+          </textarea>
         </div>
         <div style={{ ...styles.block, ...styles.button }}>
           <button type="submit" style={styles.button}>Submit</button>
         </div>
+        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
       </form>
     </div>
   );

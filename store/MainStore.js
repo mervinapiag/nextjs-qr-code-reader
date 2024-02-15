@@ -55,6 +55,43 @@ export class Main {
       });
   };
 
+  _sendContactUs = async (params, file) => {
+    
+    console.log("updateOrder", params);
+
+    let data = new FormData();
+
+    data.append("name", params.name);
+    data.append("contact_number", params.phone);
+    data.append("inquiry_type", params.inquiryType);
+    data.append("text", params.message);
+    
+    if(params.rentalDate) {
+      data.append("date_schedule", params.rentalDate);
+    }
+
+    if(file) {
+      console.log("why")
+      data.append("files.picture", file);
+    }
+
+    let config = {
+      method: "post",
+      url: `${this.baseURL}/api/contact-uses`,
+      data: data,
+    };
+
+    return axios
+      .request(config)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => {
+        console.log(error);
+        return error;
+      });
+  };
 }
 
 export default createContext(new Main());

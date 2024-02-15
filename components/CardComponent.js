@@ -81,12 +81,20 @@ const CardComponent = ({ person }) => {
           </Link>
 
         </div> */}
-        <div style={styles.fbIconContainer}>
+        {/* <div style={styles.fbIconContainer}>
           <Link href={person.facebook_url} passHref>
             <FontAwesomeIcon icon={faFacebook} style={styles.fbIcon} />
             <span style={styles.fbIconText}></span>
           </Link>
-        </div>
+        </div> */}
+        {person.facebook_url && (
+          <div style={styles.fbIconContainer}>
+            <Link href={person.facebook_url} passHref>
+              <FontAwesomeIcon icon={faFacebook} style={styles.fbIcon} />
+              <span style={styles.fbIconText}></span>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
