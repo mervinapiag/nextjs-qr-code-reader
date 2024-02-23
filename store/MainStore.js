@@ -62,7 +62,7 @@ export class Main {
     let data = new FormData();
 
     data.append("name", params.name);
-    data.append("contact_number", params.phone);
+    data.append("contact_number", params.contactNumber);
     data.append("inquiry_type", params.inquiryType);
     data.append("text", params.message);
     

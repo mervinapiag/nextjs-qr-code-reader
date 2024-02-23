@@ -9,7 +9,7 @@ const ContactUs = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [name, setName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
-  const [inquiryType, setInquiryType] = useState('');
+  const [inquiryType, setInquiryType] = useState('complaint');
   const [message, setMessage] = useState('');
   const [rentalDate, setRentalDate] = useState(null);
 
