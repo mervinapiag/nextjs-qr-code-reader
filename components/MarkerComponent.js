@@ -10,6 +10,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChrome, faFacebook, faTelegram, faViber, faWebflow, faPhone  } from '@fortawesome/free-brands-svg-icons';
 import DeceasedComponent from './DeceasedComponent';
+
 const parisienne  = Parisienne ({
   weight: "400",
   display: "swap",
@@ -23,7 +24,6 @@ const MarkerComponent = ({ marker }) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', options);
   };
-
   
   return (
     <div style={{ ...styles.card}}>
@@ -48,13 +48,12 @@ const MarkerComponent = ({ marker }) => {
                 <DeceasedComponent key={index} deceased={deceased} />
             ))}
             <br />
-            <Link href='/contactus' passHref>
+            {/* <Link href='/contactus' passHref>
               <button style={styles.buttonContactUs}>
                 <FontAwesomeIcon icon={faViber} style={styles.icon} />
-                {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
-                <span style={styles.iconText}>Contact Us</span>
+                <span style={styles.iconText}>For inquiries or concerns regarding, please don't hesitate to contact us.</span>
               </button>
-            </Link>
+            </Link> */}
         </div>
 
       </div>
@@ -64,16 +63,17 @@ const MarkerComponent = ({ marker }) => {
 
 const styles = {
   card: {
+    width: '75%',
+    height: '85vh',
     padding: '20px',
     display: 'flex',
     flexDirection: 'column',
-    border: '1px solid #4CAF50',
+    // border: '1px solid #4CAF50',
     borderRadius: '8px',
     overflow: 'hidden',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
-    width: '100%',
     // height:'auto',
     margin: '20px auto',
     // fontFamily: 'Baskerville',
@@ -140,11 +140,11 @@ const styles = {
   motto: {
     textAlign: 'center',
     fontFamily: '__Parisienne_4197db',
-    fontSize: '25px',
+    fontSize: '22px',
     fontWeight: 600,
     fontStyle: 'italic',
     color: '#01683A',
-    // margin: '20px 0',
+    marginTop: 40,
   },
   buttonsContainer: {
     // textAlign: 'center',
@@ -152,10 +152,10 @@ const styles = {
     marginBottom: '20px'
   },
   button: {
-    backgroundColor: 'white',
-    padding: '10px 20px',
+    // backgroundColor: 'white',
+    // padding: '10px 20px',
     margin: '0 auto 10px',
-    borderRadius: '5px',
+    // borderRadius: '5px',
     cursor: 'pointer',
     border: 'none',
     display: 'flex',
@@ -163,7 +163,7 @@ const styles = {
     // width: '50%',
     width: '200px', 
     maxWidth: '100%',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
   icon: {
     color: '#396482',
@@ -171,23 +171,27 @@ const styles = {
   },
   iconText: {
     textAlign: 'center',
-    fontSize: '15px',
-    fontWeight: '600',
+    fontSize: '12px',
+    fontWeight: '400',
+    color: '#01683A',
+    fontFamily: '__Parisienne_4197db',
+    backgroundColor: 'transparent'
   },
   buttonContactUs: {
-    backgroundColor: 'white',
-    padding: '10px 20px',
-    margin: '20px auto 10px',
-    borderRadius: '5px',
+    // backgroundColor: 'white',
+    // padding: '10px 20px',
+    // margin: '20px auto 10px',
+    // borderRadius: '5px',
     cursor: 'pointer',
     border: 'none',
     display: 'flex',
     alignItems: 'flex-start',
-    width: '200px',
+    width: '100%',
     maxWidth: '100%',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
     justifyContent: 'center',
+    backgroundColor: 'transparent',
   },
 
 };

@@ -53,30 +53,38 @@ const MarkerComponent = ({ deceased }) => {
 
 const styles = {
   buttonsContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     textAlign: 'center',
+    padding: 0,
+    width: 'auto',
   },
   button: {
-    backgroundColor: 'white',
-    padding: '10px 20px',
-    margin: '20px auto 10px',
-    borderRadius: '5px',
+    // backgroundColor: 'white',
+    // padding: '10px 20px',
+    // margin: '20px auto 10px',
+    // borderRadius: '5px',
     cursor: 'pointer',
     border: 'none',
     display: 'flex',
     alignItems: 'flex-start',
-    width: '200px',
-    maxWidth: '100%',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    // width: '200px',
+    // maxWidth: '100%',
+    // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
-    fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
+    // fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
+    fontFamily:'Times New Roman, sans-serif',
     justifyContent: 'center',
+    background: 'transparent',
+    textTransform: 'uppercase',
+    color: '#c8b12f'
+    
   },
-
   iconText: {
     textAlign: 'center',
-    fontSize: '15px',
-    fontWeight: '600',
-    textTransform: 'capitalize'
+    fontSize: '32px',
+    fontWeight: 600,
   }
 };
 

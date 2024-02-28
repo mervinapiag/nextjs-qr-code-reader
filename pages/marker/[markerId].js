@@ -8,6 +8,12 @@ import MainStore from "../../store/MainStore";
 import { Markup } from 'react-render-markup';
 import { observer } from "mobx-react";
 import ReactMarkdown from 'react-markdown';
+import Link from 'next/link';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChrome, faFacebook, faTelegram, faViber, faWebflow, faPhone  } from '@fortawesome/free-brands-svg-icons';
+
+
 const MarkerPage = observer(() => {
   const router = useRouter();
   const { markerId } = router.query;
@@ -43,24 +49,24 @@ const MarkerPage = observer(() => {
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
   if (!marker) {
     return <div>Loading...</div>;
   }
+
   return (
     <div style={styles.pageContainer}>
-        <Modal
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={modalStyles}
         contentLabel="Announcement Modal"
       >
-        <div style={styles.modalHeader}>
+        <div style={styles.header}>
+          <h3>Announcement</h3>
           <button style={modalStyles.closeButton} onClick={closeModal}>
             X
           </button>
-        </div>
-        <div style={styles.header}>
-          <h3>Announcement</h3>
         </div>
 
         <div style={styles.modalContent}>
@@ -77,25 +83,31 @@ const MarkerPage = observer(() => {
           </p>
 
           <div style={styles.managementText}>
-            <strong><h4>- Management</h4></strong>
+            <p>- ForestLake Management</p>
           </div>
-          
-         
-
         </div>
+
         <div style={styles.logoContainer}>
-            <Image
+          <Image
             src={logo2}
-            width={100}
-            height={100}
+            width={140}
+            height={140}
             alt="Forestlake LOGO"
           />
-          </div>
+        </div>
       </Modal>
 
       <div style={styles.centeredCard}>
         <MarkerComponent marker={marker} />
       </div>
+
+      <Link href='/contactus' passHref>
+        <button style={styles.buttonContactUs}>
+          {/* <FontAwesomeIcon icon={faViber} style={styles.icon} /> */}
+          {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
+          <span style={styles.iconText}>For inquiries or concerns, please contact us here.</span>
+        </button>
+      </Link>
     </div>
   );
 });
@@ -104,6 +116,7 @@ const styles = {
   pageContainer: {
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
   },
@@ -117,7 +130,6 @@ const styles = {
   modalHeader: {
     display: 'flex',
     justifyContent: 'flex-end',
-    marginBottom: '10px',
   },
   closeButton: {
     background: 'none',
@@ -127,41 +139,65 @@ const styles = {
     padding: '5px',
   },
   modalContent: {
-    padding: '20px',
+    padding: 15,
     position: 'relative',
+    backgroundColor: '#fafafa',
+    margin: 20,
+    borderRadius: 6,
+    height: 'auto',
   },
   header: {
     position: 'relative',
     backgroundColor: '#01683F',
     color: 'white',
-    padding: '10px 20px',
+    padding: 15,
     textAlign: 'center',
-    marginLeft: '-20px', 
-    marginRight: '-20px',
-    marginTop: '20px',
-    fontSize: '25px',
+    textTransform: 'uppercase',
+    fontSize: '20px',
   },
   garethText: {
     fontFamily: 'Gareth, sans-serif',
-    marginBottom: '20px',
     lineHeight: '1.5',
+    fontSize: 14,
+    fontWeight: '300',
+    color: '#333',
   },
   logoContainer: {
-    position: 'relative',
-    top: '-20%',
-    left: '-20%',
-    float: 'right',
-    width: '10%',
-    height: 'auto',
-    transform: 'translate(60%, 50%)',
-    maxWidth: '50px',
+    // position: 'relative',
+    // top: '-20%',
+    // left: '-20%',
+    // float: 'right',
+    // width: '10%',
+    // height: 'auto',
+    // transform: 'translate(60%, 50%)',
+    // maxWidth: '50px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
   },
   managementText: {
-    textAlign: 'right',
     marginRight: '20px',
-    fontSize: '18px',
-    marginTop: '10px',
+    fontSize: '11px',
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    marginTop: 20,
+    //color: '#333',
     color: '#01683F'
+  },
+  buttonContactUs: {
+    backgroundColor: 'transparent',
+    border: 0,
+    boxShadow: 0,
+    color: '#01683F',
+    cursor: 'pointer',
+    fontSize: 11,
+  },
+  iconText: {
+    backgroundColor: 'transparent',
+    fontWeight: '300',
+    fontFamily: '__Parisienne_4197db',
+    fontSize: 13,
   },
 };
 
@@ -170,26 +206,28 @@ const modalStyles = {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   content: {
-    borderRadius: '10px',
+    borderRadius: 6,
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '80%',
     height: '64%',
-    maxWidth: '600px',
+    maxWidth: '480px',
     maxHeight: '80%',
     fontFamily: 'Archivo Black, sans-serif',
     boxSizing: 'border-box',
     textAlign: 'left',
+    padding: 0,
+    border: 0,
   },
   closeButton: {
     position: 'absolute',
-    top: '10px',
-    right: '10px',
+    top: 20,
+    right: 15,
     background: 'none',
     border: 'none',
-    fontSize: '20px',
+    fontSize: 18,
     cursor: 'pointer',
   },
   '@media (max-width: 600px)': {
