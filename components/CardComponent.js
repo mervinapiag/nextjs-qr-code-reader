@@ -9,7 +9,7 @@ import Link from 'next/link';
 // import '@fortawesome/fontawesome-svg-core/styles.css
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChrome, faFacebook, faTelegram, faViber, faWebflow } from '@fortawesome/free-brands-svg-icons';
+import { faChrome, faFacebook, faInstagram, faInstagramSquare, faSquareFacebook, faSquareYoutube, faTelegram, faViber, faWebflow, faYoutube, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
 import mediaQueries from '@/styles/MediaQueries.module.css';
 
 const parisienne  = Parisienne ({
@@ -90,11 +90,27 @@ const CardComponent = ({ person }) => {
           </Link>
         </div> */}
         {person.facebook_url && (
-          <div style={styles.fbIconContainer}>
-            <Link href={person.facebook_url} passHref>
-              <FontAwesomeIcon icon={faFacebook} style={styles.fbIcon} />
-              <span style={styles.fbIconText}></span>
-            </Link>
+          <div className={mediaQueries.iconWrapper}>
+            <div style={styles.iconContainer}>
+              <Link href={person.facebook_url} passHref>
+                <FontAwesomeIcon icon={faSquareFacebook} style={styles.fbIcon} />
+                <span style={styles.fbIconText}></span>
+              </Link>
+            </div>
+
+            <div style={styles.iconContainer}>
+              <Link href={person.facebook_url} passHref>
+                <FontAwesomeIcon icon={faInstagramSquare} style={styles.fbIcon} />
+                <span style={styles.igIconText}></span>
+              </Link>
+            </div>
+
+            <div style={styles.iconContainer}>
+              <Link href={person.facebook_url} passHref>
+                <FontAwesomeIcon icon={faSquareYoutube} style={styles.fbIcon} />
+                <span style={styles.ytIconText}></span>
+              </Link>
+            </div>
           </div>
         )}
       </div>
@@ -211,7 +227,7 @@ const styles = {
   iconText: {
     textAlign: 'center'
   },
-  fbIconContainer: {
+  iconContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -224,8 +240,16 @@ const styles = {
   },
   fbIconText: {
     fontSize: '30px',
-    color: '#555',
+    color: '#333',
   },
+  igIconText: {
+    fontSize: '30px',
+    color: '#333',
+  },
+  ytIconText: {
+    fontSize: '30px',
+    color: '#333',
+  }
 };
 
 export default CardComponent;

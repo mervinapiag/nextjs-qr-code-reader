@@ -52,6 +52,24 @@
     overflow: auto !important;
 }
 
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.iconWrapper svg {
+    width: 22px;
+    height: 22px;
+    align-self: center;
+    margin: 0 !important; 
+}
+
+.iconWrapper svg path {
+    color: #000;
+}
+
 
 
 
