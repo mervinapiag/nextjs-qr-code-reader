@@ -10,6 +10,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChrome, faFacebook, faTelegram, faViber, faWebflow, faPhone  } from '@fortawesome/free-brands-svg-icons';
 import DeceasedComponent from './DeceasedComponent';
+import mediaQueries from '@/styles/MediaQueries.module.css';
 
 const parisienne  = Parisienne ({
   weight: "400",
@@ -26,7 +27,7 @@ const MarkerComponent = ({ marker }) => {
   };
   
   return (
-    <div style={{ ...styles.card}}>
+    <div style={{...styles.card}} className={mediaQueries.card}>
       <div style={styles.logoContainer}>
         <Image
         src={logo2}
@@ -36,7 +37,7 @@ const MarkerComponent = ({ marker }) => {
       />
       </div>
 
-      <h3 className={parisienne.className} style={styles.motto}>{`In loving memory of`}</h3>
+      <h3 className={`${parisienne.className}, ${mediaQueries.text}`} style={styles.motto}>In loving memory of</h3>
 
       <div style={styles.details}>
         {/* <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2> */}
@@ -48,15 +49,16 @@ const MarkerComponent = ({ marker }) => {
                 <DeceasedComponent key={index} deceased={deceased} />
             ))}
             <br />
-            {/* <Link href='/contactus' passHref>
-              <button style={styles.buttonContactUs}>
-                <FontAwesomeIcon icon={faViber} style={styles.icon} />
-                <span style={styles.iconText}>For inquiries or concerns regarding, please don't hesitate to contact us.</span>
-              </button>
-            </Link> */}
         </div>
-
+        
       </div>
+
+      <Link href='/contactus' passHref>
+          <button style={styles.buttonContactUs}>
+            {/* <FontAwesomeIcon icon={faViber} style={styles.icon} /> */}
+            <span style={styles.iconText}>For inquiries or concerns regarding, please don't hesitate to contact us.</span>
+          </button>
+        </Link>
     </div>
   );
 };
@@ -68,22 +70,19 @@ const styles = {
     padding: '20px',
     display: 'flex',
     flexDirection: 'column',
-    // border: '1px solid #4CAF50',
     borderRadius: '8px',
     overflow: 'hidden',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
-    // height:'auto',
     margin: '20px auto',
-    // fontFamily: 'Baskerville',
-    // fontFamily: 'Baskerville, serif',
     fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
     backgroundImage: `url(${bg2.src})`,
-    backgroundSize: 'cover', // Adjust to 'contain' if needed
+    backgroundSize: 'cover',
     backgroundSize: '100% 100%',
-    backgroundPosition: 'center', // Adjust as needed
-    backgroundRepeat: 'no-repeat', // Adjust as needed
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    position: 'relative',
   },
   circularImageContainer: {
     textAlign: 'center',
@@ -119,8 +118,8 @@ const styles = {
   },
   details: {
     padding: '20px',
-    textAlign: 'left',
-    textAlign: 'center', // Center content horizontally
+    textAlign: 'center',
+    marginTop: 20,
   },
   name: {
     fontSize: '2em',
@@ -131,7 +130,6 @@ const styles = {
     fontSize: '0.8em',
     marginBottom: '8px',
     color: '#333',
-    // padding: '0 5px',
     whiteSpace: 'pre',
   },
   email: {
@@ -147,23 +145,16 @@ const styles = {
     marginTop: 40,
   },
   buttonsContainer: {
-    // textAlign: 'center',
-    // marginTop: 'px',
     marginBottom: '20px'
   },
   button: {
-    // backgroundColor: 'white',
-    // padding: '10px 20px',
     margin: '0 auto 10px',
-    // borderRadius: '5px',
     cursor: 'pointer',
     border: 'none',
     display: 'flex',
     alignItems: 'flex-start',
-    // width: '50%',
     width: '200px', 
     maxWidth: '100%',
-    // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
   icon: {
     color: '#396482',
@@ -178,22 +169,19 @@ const styles = {
     backgroundColor: 'transparent'
   },
   buttonContactUs: {
-    // backgroundColor: 'white',
-    // padding: '10px 20px',
-    // margin: '20px auto 10px',
-    // borderRadius: '5px',
+    backgroundColor: '#fff',
+    padding: '4px 8px',
+    borderRadius: 6,
+    border: 0,
+    
+    boxShadow: 'rgba(0, 0, 0, 0.1) 0px 2px 8px',
     cursor: 'pointer',
-    border: 'none',
-    display: 'flex',
-    alignItems: 'flex-start',
-    width: '100%',
-    maxWidth: '100%',
-    // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    textAlign: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
+
+    position: 'absolute',
+    left: '50%',
+    bottom: 50,
+    transform: 'translate(-50%, -50%)',
+    width: '65%'
   },
-
 };
-
 export default MarkerComponent;

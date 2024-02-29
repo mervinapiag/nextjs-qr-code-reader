@@ -12,6 +12,7 @@ import Link from 'next/link';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChrome, faFacebook, faTelegram, faViber, faWebflow, faPhone  } from '@fortawesome/free-brands-svg-icons';
+import mediaQueries from '@/styles/MediaQueries.module.css'
 
 
 const MarkerPage = observer(() => {
@@ -60,6 +61,7 @@ const MarkerPage = observer(() => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={modalStyles}
+        className={mediaQueries.announcementModal}
         contentLabel="Announcement Modal"
       >
         <div style={styles.header}>
@@ -69,7 +71,7 @@ const MarkerPage = observer(() => {
           </button>
         </div>
 
-        <div style={styles.modalContent}>
+        <div className={mediaQueries.modalContent} style={styles.modalContent}>
           <p style={styles.garethText}> 
           Discover Forest Lake's Libre Burol Offer
           <br />  <br />
@@ -97,17 +99,9 @@ const MarkerPage = observer(() => {
         </div>
       </Modal>
 
-      <div style={styles.centeredCard}>
+      <div style={styles.centeredCard} className={mediaQueries.centeredCard}>
         <MarkerComponent marker={marker} />
       </div>
-
-      <Link href='/contactus' passHref>
-        <button style={styles.buttonContactUs}>
-          {/* <FontAwesomeIcon icon={faViber} style={styles.icon} /> */}
-          {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
-          <span style={styles.iconText}>For inquiries or concerns, please contact us here.</span>
-        </button>
-      </Link>
     </div>
   );
 });
@@ -154,6 +148,8 @@ const styles = {
     textAlign: 'center',
     textTransform: 'uppercase',
     fontSize: '20px',
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
   },
   garethText: {
     fontFamily: 'Gareth, sans-serif',

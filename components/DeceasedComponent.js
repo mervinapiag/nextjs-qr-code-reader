@@ -3,7 +3,8 @@ import bg from './images/bg.png';
 import { Parisienne,   } from "@next/font/google";
 import Link from 'next/link';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import mediaQueries from '@/styles/MediaQueries.module.css'
 
 const parisienne  = Parisienne ({
   weight: "400",
@@ -35,19 +36,38 @@ const MarkerComponent = ({ deceased }) => {
   }
   
   return (
-      <div style={styles.details}>
-        
-        <div style={styles.buttonsContainer}>
+    <div style={styles.details}>
+      <div className={mediaQueries.buttonsContainer} style={styles.buttonsContainer}>
+          <Link href={urls(deceased.id)} passHref>
+          <button style={styles.button}>
+            {/* <FontAwesomeIcon icon={faFacebook} style={styles.icon} /> */}
+            {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
+            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
+          </button>
+        </Link>
 
-           <Link href={urls(deceased.id)} passHref>
-            <button style={styles.button}>
-              {/* <FontAwesomeIcon icon={faFacebook} style={styles.icon} /> */}
-              {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
-              <span style={styles.iconText}>{fullName.toUpperCase()}</span>
-            </button>
-          </Link>
-        </div>
+        <Link href={urls(deceased.id)} passHref>
+          <button style={styles.button}>
+            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
+          </button>
+        </Link>
+        <Link href={urls(deceased.id)} passHref>
+          <button style={styles.button}>
+            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
+          </button>
+        </Link>
+        <Link href={urls(deceased.id)} passHref>
+          <button style={styles.button}>
+            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
+          </button>
+        </Link>
+        <Link href={urls(deceased.id)} passHref>
+          <button style={styles.button}>
+            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
+          </button>
+        </Link>
       </div>
+    </div>
   );
 };
 
@@ -56,34 +76,31 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 10,
+
     textAlign: 'center',
     padding: 0,
-    width: 'auto',
+    width: '100%',
   },
   button: {
-    // backgroundColor: 'white',
-    // padding: '10px 20px',
-    // margin: '20px auto 10px',
-    // borderRadius: '5px',
+    backgroundColor: '#fff',
+    borderRadius: 6,
+    padding: '8px 16px',
     cursor: 'pointer',
     border: 'none',
-    display: 'flex',
-    alignItems: 'flex-start',
-    // width: '200px',
-    // maxWidth: '100%',
-    // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    textAlign: 'center',
-    // fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+
     fontFamily:'Times New Roman, sans-serif',
-    justifyContent: 'center',
-    background: 'transparent',
     textTransform: 'uppercase',
-    color: '#c8b12f'
-    
+    // color: '#c8b12f',
+    color: '#333',
+    textAlign: 'center',
+    width: '100%',
   },
   iconText: {
     textAlign: 'center',
-    fontSize: '32px',
+    fontSize: '20px',
     fontWeight: 600,
   }
 };

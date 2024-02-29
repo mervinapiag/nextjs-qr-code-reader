@@ -1,0 +1,64 @@
+.announcementModal {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 6px !important;
+}
+.announcementModal:active, 
+.announcementModal:hover,
+.announcementModal:focus-visible {
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+@media (max-width: 768px) {
+    .centeredCard {
+        width: 100% !important;
+    }
+    .card {
+      margin: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+    }
+    .buttonsContainer {
+        flex-direction: column !important;
+    }
+    .announcementModal {
+        max-width: 100% !important;
+        width: 90% !important;
+        max-height: 100% !important; 
+        height: 90% !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .centeredCard {
+        width: 100% !important;
+    }
+    .card {
+        margin: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+    .text {
+        margin-top: 0 !important;
+    }
+    .deceasedButtonText {
+        font-size: 16px !important;
+    }
+    .modalContent {
+        max-height: 62%;
+        overflow: auto;
+    }
+}
+
+@media (max-width: 425px) {
+    .announcementModal {
+        width: 95% !important;
+        height: 95% !important;
+    }
+    .modalContent {
+        padding: 10px !important;
+        margin: 10px !important;
+    }
+}
