@@ -10,6 +10,7 @@ import Link from 'next/link';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChrome, faFacebook, faTelegram, faViber, faWebflow } from '@fortawesome/free-brands-svg-icons';
+import mediaQueries from '@/styles/MediaQueries.module.css';
 
 const parisienne  = Parisienne ({
   weight: "400",
@@ -32,12 +33,13 @@ const CardComponent = ({ person }) => {
 
   
   return (
-    <div style={{ ...styles.card}}>
+    <div style={{ ...styles.card}} className={mediaQueries.card}>
       <div style={styles.logoContainer}>
         <Image
         src={logo2}
-        width={120}
-        height={120}
+        width={200}
+        height={200}
+        className={mediaQueries.logo}
         alt="Picture of the author"
       />
       </div>
@@ -53,7 +55,7 @@ const CardComponent = ({ person }) => {
       </div>
     
       <div style={styles.details}>
-        <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2>
+        <h2 className={`${parisienne.className} ${mediaQueries.name}`}  style={styles.name}>{`${person.full_name}`}</h2>
         <h3 style={styles.date}>{`${formatDate(person.date_born)}   -   ${formatDate(person.date_died)}`}</h3>
         <h3 style={styles.motto}>{`"${person.motto}"`}</h3>
         
@@ -102,16 +104,16 @@ const CardComponent = ({ person }) => {
 
 const styles = {
   card: {
+    width: '75%',
+    height: '85vh',
     padding: '20px',
     display: 'flex',
     flexDirection: 'column',
-    border: '1px solid #4CAF50',
     borderRadius: '8px',
     overflow: 'hidden',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
-    width: '100%',
     margin: '20px auto',
     fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
     backgroundImage: `url(${bg2.src})`,
@@ -119,6 +121,7 @@ const styles = {
     backgroundSize: '100% 100%',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    position: 'relative',
   },
   circularImageContainer: {
     textAlign: 'center',
@@ -158,7 +161,8 @@ const styles = {
     textAlign: 'center', // Center content horizontally
   },
   name: {
-    fontSize: '2em',
+    fontSize: '3em',
+    fontWeight: 600,
     marginBottom: '2px',
     color: '#333',
   },
@@ -173,12 +177,10 @@ const styles = {
     color: '#555',
   },
   motto: {
-    textAlign: 'center',
-    fontFamily: 'Arial, sans-serif',
     fontSize: '15px',
-    fontStyle: 'italic',
-    color: '#555',
-    // margin: '20px 0',
+    fontWeight: 600,
+    textAlign: 'center',
+    color: '#333',
     marginTop: '30px',
     marginBottom: '50px',
     padding: '15px'

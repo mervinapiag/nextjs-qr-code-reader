@@ -39,30 +39,9 @@ const MarkerComponent = ({ deceased }) => {
     <div style={styles.details}>
       <div className={mediaQueries.buttonsContainer} style={styles.buttonsContainer}>
           <Link href={urls(deceased.id)} passHref>
-          <button style={styles.button}>
+          <button className={mediaQueries.deceasedButton} style={styles.button}>
             {/* <FontAwesomeIcon icon={faFacebook} style={styles.icon} /> */}
             {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
-            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
-          </button>
-        </Link>
-
-        <Link href={urls(deceased.id)} passHref>
-          <button style={styles.button}>
-            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
-          </button>
-        </Link>
-        <Link href={urls(deceased.id)} passHref>
-          <button style={styles.button}>
-            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
-          </button>
-        </Link>
-        <Link href={urls(deceased.id)} passHref>
-          <button style={styles.button}>
-            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
-          </button>
-        </Link>
-        <Link href={urls(deceased.id)} passHref>
-          <button style={styles.button}>
             <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
           </button>
         </Link>
@@ -85,7 +64,7 @@ const styles = {
   },
   button: {
     backgroundColor: '#fff',
-    borderRadius: 6,
+    borderRadius: 8,
     padding: '8px 16px',
     cursor: 'pointer',
     border: 'none',

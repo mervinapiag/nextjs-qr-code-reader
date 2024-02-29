@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import logo2 from "../components/images/fl_logo_2.png";
 import Image from "next/image";
 import MainStore from "../store/MainStore";
+import mediaQueries from "@/styles/MediaQueries.module.css";
 
 
 const ContactUs = () => {
@@ -168,7 +169,7 @@ const ContactUs = () => {
 
   return (
     <div style={styles.html}>
-      <form style={styles.container} onSubmit={handleSubmit}>
+      <form className={mediaQueries.contactUsForm} style={styles.container} onSubmit={handleSubmit}>
         <Image
           src={logo2}
           width={150}
@@ -269,6 +270,7 @@ const ContactUs = () => {
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </div>
+
         <div>
           <button type="submit" style={styles.button}>
             Submit
