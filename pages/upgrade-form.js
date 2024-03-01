@@ -14,6 +14,7 @@ const UpgradeForm = () => {
       </div>
 
       <form>
+        <h1>Add/Upgrade Form</h1>
         <Image
           src={logo2}
           width={200}
@@ -21,8 +22,6 @@ const UpgradeForm = () => {
           alt="Forestlake Logo"
           className={styles.logo}
         />
-
-        <h1>Add/Upgrade Form</h1>
         <div className={`${styles.divFlex} ${styles.divFlexEnd}`}>
           <label>Full Name:</label>
           <input type="text" required />
@@ -50,12 +49,18 @@ const UpgradeForm = () => {
           <textarea></textarea>
         </div>
 
-        <div className={styles.divFlex}>
+        <div className={styles.divFlex} style={styles2.noMargin}>
           <button className={`${styles.button} ${styles.submitButton}`} type="button">Submit</button>
         </div>
       </form>
     </div>
   );
 };
+
+const styles2 = {
+  noMargin: {
+    margin: 0,
+  },
+}
 
 export default UpgradeForm;

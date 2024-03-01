@@ -28,7 +28,7 @@ const MarkerComponent = ({ marker }) => {
   
   return (
     <div style={{...styles.card}} className={mediaQueries.card}>
-      <div style={styles.logoContainer}>
+      <div className={mediaQueries.logoContainer} style={styles.logoContainer}>
         <Image
         src={logo2}
         width={200}
@@ -70,12 +70,12 @@ const MarkerComponent = ({ marker }) => {
 const styles = {
   card: {
     width: '75%',
-    height: '85vh',
+    minHeight: '85vh',
+    height: 'auto',
     padding: '20px',
     display: 'flex',
     flexDirection: 'column',
     borderRadius: '8px',
-    overflow: 'hidden',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
@@ -188,7 +188,7 @@ const styles = {
 
     position: 'absolute',
     left: '50%',
-    bottom: 60,
+    bottom: 20,
     transform: 'translate(-50%, -50%)',
 
     display: 'flex',

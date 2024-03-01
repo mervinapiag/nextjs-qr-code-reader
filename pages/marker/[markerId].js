@@ -208,7 +208,7 @@ const modalStyles = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '80%',
-    height: '64%',
+    height: 'auto',
     maxWidth: '480px',
     maxHeight: '80%',
     fontFamily: 'Archivo Black, sans-serif',

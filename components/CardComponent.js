@@ -34,7 +34,7 @@ const CardComponent = ({ person }) => {
   
   return (
     <div style={{ ...styles.card}} className={mediaQueries.card}>
-      <div style={styles.logoContainer}>
+      <div className={mediaQueries.logoContainer} style={styles.logoContainer}>
         <Image
         src={logo2}
         width={200}
@@ -56,39 +56,11 @@ const CardComponent = ({ person }) => {
     
       <div style={styles.details}>
         <h2 className={`${parisienne.className} ${mediaQueries.name}`}  style={styles.name}>{`${person.full_name}`}</h2>
-        <h3 style={styles.date}>{`${formatDate(person.date_born)}   -   ${formatDate(person.date_died)}`}</h3>
-        <h3 style={styles.motto}>{`"${person.motto}"`}</h3>
-        
-        {/* <div style={styles.buttonsContainer}>
 
-           <Link href={person.facebook_url} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faFacebook} style={styles.icon} />
-              <span style={styles.iconText}>Facebook</span>
-            </button>
-          </Link>
+        <h3 className={mediaQueries.dateBornDeath} style={styles.date}>{`${formatDate(person.date_born)} - ${formatDate(person.date_died)}`}</h3>
 
-          <Link href={person.orbituary_page} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faChrome} style={styles.icon} />
-              <span>Orbituary Page</span>
-            </button>
-          </Link>
+        <h3 className={mediaQueries.motto} style={styles.motto}>{`"${person.motto}"`}</h3>
 
-          <Link href={person.contact_us} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faViber} style={styles.icon} />
-              <span>Contact Us</span>
-            </button>
-          </Link>
-
-        </div> */}
-        {/* <div style={styles.fbIconContainer}>
-          <Link href={person.facebook_url} passHref>
-            <FontAwesomeIcon icon={faFacebook} style={styles.fbIcon} />
-            <span style={styles.fbIconText}></span>
-          </Link>
-        </div> */}
         {person.facebook_url && (
           <div className={mediaQueries.iconWrapper}>
             <div style={styles.iconContainer}>
@@ -121,12 +93,12 @@ const CardComponent = ({ person }) => {
 const styles = {
   card: {
     width: '75%',
-    height: '85vh',
+    minHeight: '85vh',
+    height: 'auto',
     padding: '20px',
     display: 'flex',
     flexDirection: 'column',
     borderRadius: '8px',
-    overflow: 'hidden',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
@@ -181,13 +153,6 @@ const styles = {
     fontWeight: 600,
     marginBottom: '2px',
     color: '#333',
-  },
-  date: {
-    fontSize: '15px',
-    marginBottom: '20px',
-    color: '#333',
-    whiteSpace: 'pre',
-    marginTop: '12px'
   },
   email: {
     color: '#555',

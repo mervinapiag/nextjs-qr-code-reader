@@ -81,7 +81,6 @@ const ContactUs = () => {
     container: {
       width: '60%',
       maxWidth: 600,
-      padding: '20px',
       display: 'flex',
       flexDirection: 'column',
       borderRadius: '8px',
@@ -90,10 +89,15 @@ const ContactUs = () => {
       transition: 'transform 0.3s ease-in-out 0s',
       backgroundColor: 'white',
       margin: '20px auto',
-      fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
+      //fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
+      fontFamily: 'Archivo Black, sans-serif',
       backgroundSize: '100% 100%',
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat',
+    },
+    formDetails: {
+      padding: 20,
+      paddingTop: 0,
     },
     input: {
       // fontSize: "1.2rem",
@@ -170,6 +174,8 @@ const ContactUs = () => {
   return (
     <div style={styles.html}>
       <form className={mediaQueries.contactUsForm} style={styles.container} onSubmit={handleSubmit}>
+        <h1 style={styles.h1}>Contact Us</h1>
+
         <Image
           src={logo2}
           width={150}
@@ -177,104 +183,106 @@ const ContactUs = () => {
           alt="Forestlake LOGO"
           style={styles.logo}
         />
-        <h1 style={styles.h1}>Contact Us</h1>
-        <div style={{ ...styles.block, ...styles.email }}>
-          <label htmlFor="frm-name" style={styles.label}>Name</label>
-          <input
-            id="frm-name"
-            type="text"
-            name="name"
-            autoComplete="email"
-            required
-            style={styles.input}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div style={{ ...styles.block, ...styles.phone }}>
-          <label htmlFor="frm-phone" style={styles.label}>Contact number</label>
-          <input
-            id="frm-phone"
-            type="text"
-            name="phone"
-            autoComplete="tel"
-            required
-            style={styles.input}
-            value={contactNumber}
-            onChange={(e) => setContactNumber(e.target.value)}
-          />
-        </div>
-        <div style={{ ...styles.block, ...styles.phone }}>
-          <label htmlFor="frm-inquiryType" style={styles.label}>Type of Inquiry</label>
-          <select
-            id="frm-inquiryType"
-            name="inquiryType"
-            required
-            style={styles.input}
-            value={inquiryType}
-            onChange={(e) => setInquiryType(e.target.value)}
-          >
-            <option value="complaint">Complaint</option>
-            <option value="report_broken_marker">Report Broken Marker</option>
-            <option value="rental">Rental</option>
-            <option value="purchase_flower_candle">
-              Purchase Flowers and Candles
-            </option>
-          </select>
-        </div>
 
-        {inquiryType === "report_broken_marker" && (
-          <div>
-            <label style={{ ...styles.additionalText }} htmlFor="uploadPic">
-              Please upload a picture of the broken marker for our reference.
-            </label>
+        <div style={styles.formDetails} className={mediaQueries.formDetails}>
+          <div style={{ ...styles.block, ...styles.email }}>
+            <label htmlFor="frm-name" style={styles.label}>Full Name:</label>
             <input
-              type="file"
-              id="uploadPic"
-              name="uploadPic"
-              onChange={(e) => onFilesChange(e.target.files)}
+              id="frm-name"
+              type="text"
+              name="name"
+              autoComplete="email"
+              required
+              style={styles.input}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
-        )}
-
-        {(inquiryType === "rental" ||
-          inquiryType === "purchase_flower_candle") && (
-          <div>
-            <label style={{ ...styles.additionalText }} htmlFor="uploadPic">
-              Please give us the date of your intended visit to the park.
-            </label>
-            <br />
+          <div style={{ ...styles.block, ...styles.phone }}>
+            <label htmlFor="frm-phone" style={styles.label}>Contact number:</label>
             <input
-              id="frm-date"
-              type="date"
-              name="rentalDate"
+              id="frm-phone"
+              type="text"
+              name="phone"
               autoComplete="tel"
               required
               style={styles.input}
-              onChange={(e) => setRentalDate(e.target.value)}
-              value={rentalDate}
+              value={contactNumber}
+              onChange={(e) => setContactNumber(e.target.value)}
             />
           </div>
-        )}
-        <br />
-        <div style={{ ...styles.block, ...styles.message }}>
-          <label htmlFor="frm-message" style={styles.label}>
-            Please let us know how we can be of service.
-          </label>
-          <textarea
-            id="frm-message"
-            rows="6"
-            name="message"
-            style={styles.textarea}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-        </div>
+          <div style={{ ...styles.block, ...styles.phone }}>
+            <label htmlFor="frm-inquiryType" style={styles.label}>Type of Inquiry:</label>
+            <select
+              id="frm-inquiryType"
+              name="inquiryType"
+              required
+              style={styles.input}
+              value={inquiryType}
+              onChange={(e) => setInquiryType(e.target.value)}
+            >
+              <option value="complaint">Complaint</option>
+              <option value="report_broken_marker">Report Broken Marker</option>
+              <option value="rental">Rental</option>
+              <option value="purchase_flower_candle">
+                Purchase Flowers and Candles
+              </option>
+            </select>
+          </div>
 
-        <div>
-          <button type="submit" style={styles.button}>
-            Submit
-          </button>
+          {inquiryType === "report_broken_marker" && (
+            <div>
+              <label style={{ ...styles.additionalText }} htmlFor="uploadPic">
+                Please upload a picture of the broken marker for our reference.
+              </label>
+              <input
+                type="file"
+                id="uploadPic"
+                name="uploadPic"
+                onChange={(e) => onFilesChange(e.target.files)}
+              />
+            </div>
+          )}
+
+          {(inquiryType === "rental" ||
+            inquiryType === "purchase_flower_candle") && (
+            <div>
+              <label style={{ ...styles.additionalText }} htmlFor="uploadPic">
+                Please give us the date of your intended visit to the park.
+              </label>
+              <br />
+              <input
+                id="frm-date"
+                type="date"
+                name="rentalDate"
+                autoComplete="tel"
+                required
+                style={styles.input}
+                onChange={(e) => setRentalDate(e.target.value)}
+                value={rentalDate}
+              />
+            </div>
+          )}
+          <br />
+          <div style={{ ...styles.block, ...styles.message }}>
+            <label htmlFor="frm-message" style={styles.label}>
+              Please let us know how we can be of service:
+            </label>
+            <textarea
+              id="frm-message"
+              rows="6"
+              name="message"
+              style={styles.textarea}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+          </div>
+
+          <div>
+            <button type="submit" style={styles.button}>
+              Submit
+            </button>
+          </div>
         </div>
         {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
       </form>
