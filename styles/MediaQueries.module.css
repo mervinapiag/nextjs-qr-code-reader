@@ -1,3 +1,21 @@
+/* custom scrollbar */
+.moreDetailsContainer::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 8px;
+	background-color: #F5F5F5;
+}
+.moreDetailsContainer::-webkit-scrollbar {
+	width: 8px;
+	background-color: #F5F5F5;
+}
+.moreDetailsContainer::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #515151;
+}
+
+
+
 .announcementModal {
     position: absolute;
     background-color: #fff;
@@ -92,9 +110,6 @@
 .iconWrapper svg path {
     color: #000;
 }
-.name {
-    /* color: #c8ae35 !important; */
-}
 .dateBornDeath {
     font-size: 16px !important;
     font-weight: 500 !important;
@@ -106,6 +121,53 @@
     font-style: italic;
     width: 80% !important;
     margin: 0 auto;
+}
+.viewMoreButton {
+    font-size: 12px;
+    font-weight: 300;
+    color: #515151;
+
+    background-color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+    margin: auto;
+}
+.moreDetailsContainer {
+    width: 90%;
+    margin: 60px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: #515151;
+    text-align: center;
+    max-height: 580px;
+    overflow: auto;
+}
+.moreDetailsContainer figure {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.moreDetailsContainer img {
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;    
+    border: 2px solid rgb(200, 178, 51);
+}
+.moreDetailsContainer span,
+.moreDetailsContainer p {
+    background-color: transparent !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    font-style: italic !important;
+    line-height: 1.8 !important;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 

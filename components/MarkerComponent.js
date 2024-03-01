@@ -59,7 +59,7 @@ const MarkerComponent = ({ marker }) => {
       <div className={mediaQueries.divider}></div>
       <Link href='/contactus' passHref>
         <button className={mediaQueries.buttonsContainer} style={styles.buttonContactUs}>
-          <FontAwesomeIcon icon={faViber} style={styles.icon} />
+          <FontAwesomeIcon icon={faPhone} style={styles.icon} />
           <span style={styles.iconText}>Contact Us</span>
         </button>
       </Link>

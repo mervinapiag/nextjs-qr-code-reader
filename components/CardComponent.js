@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import bg from './images/bg.png';
 import bg2 from './images/bg_2.png';
 import logo from './images/fl_logo.png';
@@ -19,6 +19,8 @@ const parisienne  = Parisienne ({
 });
 
 const CardComponent = ({ person }) => {
+  const [isMoreDetailsOpen, setIsMoreDetailsOpen] = useState(false);
+  const ckeditor_tbvContent = person.ckeditor_tbv;
 
   const imageUrl = person.picture?.url;
   // const apiUrl = `https://forestlakeparks-qr-code-production.up.railway.app${imageUrl}`;
@@ -34,34 +36,48 @@ const CardComponent = ({ person }) => {
   
   return (
     <div style={{ ...styles.card}} className={mediaQueries.card}>
-      <div className={mediaQueries.logoContainer} style={styles.logoContainer}>
-        <Image
-        src={logo2}
-        width={200}
-        height={200}
-        className={mediaQueries.logo}
-        alt="Picture of the author"
-      />
-      </div>
+      {isMoreDetailsOpen ? (
+        <div className={mediaQueries.moreDetailsContainer} dangerouslySetInnerHTML={{ __html: ckeditor_tbvContent }} />
+      ) : (
+        <>
+          <div className={mediaQueries.logoContainer} style={styles.logoContainer}>
+            <Image
+              src={logo2}
+              width={200}
+              height={200}
+              className={mediaQueries.logo}
+              alt="Picture of the author"
+            />
+          </div>
 
-      <div style={styles.circularImageContainer}>
-        <Image
-          src={apiUrl}
-          width={100}
-          height={100}
-          alt="Picture of the author"
-          style={styles.circularImage}
-        />
-      </div>
+          <div style={styles.circularImageContainer}>
+            <Image
+              src={apiUrl}
+              width={100}
+              height={100}
+              alt="Picture of the author"
+              style={styles.circularImage}
+            />
+          </div>
+
+          <div style={styles.details}>
+            <h2 className={`${parisienne.className} ${mediaQueries.name}`}  style={styles.name}>{`${person.full_name}`}</h2>
+
+            <h3 className={mediaQueries.dateBornDeath} style={styles.date}>{`${formatDate(person.date_born)} - ${formatDate(person.date_died)}`}</h3>
+
+            <h3 className={mediaQueries.motto} style={styles.motto}>{`"${person.motto}"`}</h3>
+          </div>
+        </>
+      )}
     
-      <div style={styles.details}>
-        <h2 className={`${parisienne.className} ${mediaQueries.name}`}  style={styles.name}>{`${person.full_name}`}</h2>
+      <button  
+        className={mediaQueries.viewMoreButton} 
+        onClick={() => setIsMoreDetailsOpen(!isMoreDetailsOpen)}
+      >
+        {isMoreDetailsOpen ? 'Hide' : `View`} more about {`${person.full_name}`}'s life. 
+      </button>
 
-        <h3 className={mediaQueries.dateBornDeath} style={styles.date}>{`${formatDate(person.date_born)} - ${formatDate(person.date_died)}`}</h3>
-
-        <h3 className={mediaQueries.motto} style={styles.motto}>{`"${person.motto}"`}</h3>
-
-        {person.facebook_url && (
+      {person.facebook_url && (
           <div className={mediaQueries.iconWrapper}>
             <div style={styles.iconContainer}>
               <Link href={person.facebook_url} passHref>
@@ -85,7 +101,6 @@ const CardComponent = ({ person }) => {
             </div>
           </div>
         )}
-      </div>
     </div>
   );
 };
