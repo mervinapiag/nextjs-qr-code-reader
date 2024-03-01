@@ -70,25 +70,50 @@
     margin-top: 10px !important;
 }
 .card .deceasedButton {
-    position: relative;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    background-color: #fff !important;
+    padding: 8px 16px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    margin: auto !important;
+    width: 100%;
+    padding: 4px 10px !important;
+    
 }
 .divider {
-    /* background-color: #c8b12f; */
-    border-bottom: 2px solid #c8b12f;
-    border-radius: 50px;
-    width: 37%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 
     position: absolute;
-    bottom: 100px;
-    left: 50%;
+    bottom: 95px;
+    left: 49.6%;
     transform: translate(-50%, -50%);
+}
+.divider div {
+    background-color: #c8b12f;
+    border-radius: 50px;
+    /* border-bottom: 2px solid #c8b12f; */
+    border-radius: 50px;
+    width: 5px;
+    height: 5px;
+}
+.divider div:nth-child(2){
+    width: 8px;
+    height: 8px;
 }
 .card .deceasedContainer {
     display: flex;
     flex-direction: column !important;
     flex-wrap: nowrap !important;
     gap: 10px !important;
+}
+.card .deceasedContainer a {
+    display: block;
+    width: 60%;
 }
 .iconWrapper {
     display: flex;
@@ -122,7 +147,7 @@
     width: 80% !important;
     margin: 0 auto;
 }
-.viewMoreButton {
+.viewMoreButton, .contactUsButton {
     font-size: 12px;
     font-weight: 300;
     color: #515151;
@@ -131,7 +156,7 @@
     padding: 4px 8px;
     border-radius: 4px;
     cursor: pointer;
-    width: 40%;
+    width: 45%;
     margin: auto;
 }
 .moreDetailsContainer {

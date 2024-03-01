@@ -8,7 +8,7 @@ import Link from 'next/link';
 // import '@fortawesome/fontawesome-svg-core/styles.css
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faViber } from '@fortawesome/free-brands-svg-icons';
+import { faViber } from '@fortawesome/free-brands-svg-icons';
 import DeceasedComponent from './DeceasedComponent';
 import mediaQueries from '@/styles/MediaQueries.module.css';
 
@@ -44,23 +44,27 @@ const MarkerComponent = ({ marker }) => {
         {/* <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2> */}
         {/* <h3 style={styles.date}>{`${formatDate(person.born)}   -   ${formatDate(person.died)}`}</h3> */}
 
-        
         <div style={styles.buttonsContainer} className={mediaQueries.deceasedContainer}>
             {marker.deceased.map((deceased, index) => (
               <>
                 <DeceasedComponent key={index} deceased={deceased} />
-                {/* <div className={mediaQueries.divider}></div> */}
+                {/* <div></div> */}
               </>
             ))}
             <br />
         </div>
       </div>
 
-      <div className={mediaQueries.divider}></div>
+      <div className={mediaQueries.divider}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <Link href='/contactus' passHref>
-        <button className={mediaQueries.buttonsContainer} style={styles.buttonContactUs}>
-          <FontAwesomeIcon icon={faPhone} style={styles.icon} />
-          <span style={styles.iconText}>Contact Us</span>
+        <button className={`${mediaQueries.buttonsContainer}, ${mediaQueries.contactUsButton}`} style={styles.buttonContactUs}>
+          <FontAwesomeIcon icon={faViber} style={styles.icon} />
+          {/* <span style={styles.iconText}>Contact Us</span> */}
+          Contact Us For More Info.
         </button>
       </Link>
     </div>
@@ -123,7 +127,6 @@ const styles = {
   details: {
     padding: '20px',
     textAlign: 'center',
-    marginTop: 20,
   },
   name: {
     fontSize: '2em',
@@ -146,7 +149,7 @@ const styles = {
     fontWeight: 600,
     fontStyle: 'italic',
     color: '#01683A',
-    marginTop: 40,
+    marginTop: 10,
   },
   buttonsContainer: {
     marginBottom: '20px',
@@ -161,34 +164,35 @@ const styles = {
     maxWidth: '100%',
   },
   icon: {
-    color: '#01683A',
-    marginRight: '10px',
-    fontSize: 20,
+    // color: '#01683A',
+    color: '#333',
+    marginRight: 4,
+    fontSize: 14,
   },
-  iconText: {
-    textAlign: 'center',
-    fontSize: '20px',
-    fontWeight: '600',
-    textTransform: 'uppercase',
-    color: '#01683A',
-    fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
-  },
+  // iconText: {
+  //   textAlign: 'center',
+  //   fontSize: '20px',
+  //   fontWeight: '600',
+  //   textTransform: 'uppercase',
+  //   color: '#01683A',
+  //   fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
+  // },
   buttonContactUs: {
    // backgroundColor: '#01683A',
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    border: 0,
-    padding: 10,
-    width: 'auto',
-    padding: '10px 14px',
-    height: 44,
+    // backgroundColor: '#fff',
+    // borderRadius: 8,
+    // border: 0,
+    // padding: 10,
+    width: '40%',
+    // padding: '10px 14px',
+    // height: 44,
     
-    boxShadow: 'rgba(0, 0, 0, 0.1) 0px 2px 8px',
-    cursor: 'pointer',
+    // boxShadow: 'rgba(0, 0, 0, 0.1) 0px 2px 8px',
+    // cursor: 'pointer',
 
     position: 'absolute',
-    left: '50%',
-    bottom: 20,
+    left: '49.5%',
+    bottom: 40,
     transform: 'translate(-50%, -50%)',
 
     display: 'flex',

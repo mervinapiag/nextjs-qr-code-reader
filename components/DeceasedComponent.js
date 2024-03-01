@@ -42,7 +42,8 @@ const MarkerComponent = ({ deceased }) => {
           <button className={mediaQueries.deceasedButton} style={styles.button}>
             {/* <FontAwesomeIcon icon={faFacebook} style={styles.icon} /> */}
             {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
-            <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span>
+            {/* <span className={mediaQueries.deceasedButtonText} style={styles.iconText}>{fullName.toUpperCase()}</span> */}
+            {fullName.toUpperCase()}
           </button>
         </Link>
       </div>
@@ -62,26 +63,21 @@ const styles = {
     padding: 0,
     width: '100%',
   },
-  button: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: '8px 16px',
-    cursor: 'pointer',
-    border: 'none',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+  // button: {
+  //   backgroundColor: '#fff',
+  //   borderRadius: 8,
+  //   padding: '8px 16px',
+  //   cursor: 'pointer',
+  //   border: 'none',
+  //   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
 
-    fontFamily:'Times New Roman, sans-serif',
-    textTransform: 'uppercase',
-    // color: '#c8b12f',
-    color: '#333',
-    textAlign: 'center',
-    width: '100%',
-  },
-  iconText: {
-    textAlign: 'center',
-    fontSize: '20px',
-    fontWeight: 600,
-  }
+  //   fontFamily:'Times New Roman, sans-serif',
+  //   textTransform: 'uppercase',
+  //   // color: '#c8b12f',
+  //   color: '#333',
+  //   textAlign: 'center',
+  //   width: '100%',
+  // },
 };
 
 export default MarkerComponent;

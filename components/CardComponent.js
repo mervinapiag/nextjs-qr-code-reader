@@ -135,8 +135,7 @@ const styles = {
     height: '150px',
     borderRadius: '50%',
     objectFit: 'cover',
-    border: '2px solid rgb(200, 178, 51)',
-    padding: '10px',
+    border: '3px solid rgb(200, 178, 51)',
   },
   logoContainer: {
     textAlign: 'center',
