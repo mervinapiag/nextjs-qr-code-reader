@@ -152,7 +152,8 @@ const styles = {
     marginTop: 10,
   },
   buttonsContainer: {
-    marginBottom: '20px',
+    marginTop: 5,
+    marginBottom: 20,
   },
   button: {
     margin: '0 auto 10px',

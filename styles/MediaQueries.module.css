@@ -70,7 +70,7 @@
     margin-top: 10px !important;
 }
 .card .deceasedButton {
-    font-size: 15px !important;
+    font-size: 18px;
     font-weight: 600 !important;
     color: #333 !important;
     background-color: #fff !important;
@@ -298,7 +298,6 @@
     }
     .card .deceasedContainer {
         gap: 15px !important;
-        margin-top: -20px;
     }
     .moreDetailsContainer {
         margin: 15px auto;
@@ -314,22 +313,36 @@
         width: 85%;
     }
     .viewMoreButton {
-        width: 60%;
+        width: auto;
     }
     .motto {
         margin-top: 20px !important;
         margin-bottom: 10px !important;
     }
+    .contactUsButton {
+        bottom: 30px !important;
+        width: 45% !important;
+    }
+    .divider {
+        bottom: 75px !important;
+    }
 }
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .card .buttonsContainer {
         width: 60% !important;
     }
     .card .buttonsContainer span,
-    .card .deceasedButton span {
-        font-size: 16px !important;
+    .card .deceasedButton span,
+    .deceasedButton {
+        font-size: 14px !important;
     }
     .card .deceasedContainer .buttonsContainer {
         width: auto !important;
+    }
+    .card .deceasedContainer a {
+        width: 100% !important;
+    }
+    .contactUsButton {
+        width: 58% !important;
     }
 }
