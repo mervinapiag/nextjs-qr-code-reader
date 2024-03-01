@@ -44,18 +44,15 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    // justifyContent: 'center',
+    justifyContent: 'center',
     minHeight: '100vh',
-    // height: 'auto'
-    // width: '100%', // Set width to 100% to center the container
   },
   centeredCard: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '90%',
-    // height: 'auto',
-    maxWidth: '800px', // Adjust the maximum width as needed
+    width: '100%',
+    maxWidth: '800px',
   },
 };
 

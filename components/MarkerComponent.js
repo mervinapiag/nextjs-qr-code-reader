@@ -8,8 +8,10 @@ import Link from 'next/link';
 // import '@fortawesome/fontawesome-svg-core/styles.css
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChrome, faFacebook, faTelegram, faViber, faWebflow, faPhone  } from '@fortawesome/free-brands-svg-icons';
+import { faViber } from '@fortawesome/free-brands-svg-icons';
 import DeceasedComponent from './DeceasedComponent';
+import mediaQueries from '@/styles/MediaQueries.module.css';
+
 const parisienne  = Parisienne ({
   weight: "400",
   display: "swap",
@@ -23,67 +25,72 @@ const MarkerComponent = ({ marker }) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', options);
   };
-
   
   return (
-    <div style={{ ...styles.card}}>
-      <div style={styles.logoContainer}>
+    <div style={{...styles.card}} className={mediaQueries.card}>
+      <div className={mediaQueries.logoContainer} style={styles.logoContainer}>
         <Image
         src={logo2}
         width={200}
         height={200}
+        className={mediaQueries.logo}
         alt="Forestlake LOGO"
       />
       </div>
 
-      <h3 className={parisienne.className} style={styles.motto}>{`In loving memory of`}</h3>
+      <h3 className={`${parisienne.className}, ${mediaQueries.text}`} style={styles.motto}>In loving memory of</h3>
 
       <div style={styles.details}>
         {/* <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2> */}
         {/* <h3 style={styles.date}>{`${formatDate(person.born)}   -   ${formatDate(person.died)}`}</h3> */}
 
-        
-        <div style={styles.buttonsContainer}>
+        <div style={styles.buttonsContainer} className={mediaQueries.deceasedContainer}>
             {marker.deceased.map((deceased, index) => (
+              <>
                 <DeceasedComponent key={index} deceased={deceased} />
+                {/* <div></div> */}
+              </>
             ))}
             <br />
-            <Link href='/contactus' passHref>
-              <button style={styles.buttonContactUs}>
-                <FontAwesomeIcon icon={faViber} style={styles.icon} />
-                {/* <span className={parisienne.className} style={styles.iconText}>{deceased.full_name}</span> */}
-                <span style={styles.iconText}>Contact Us</span>
-              </button>
-            </Link>
         </div>
-
       </div>
+
+      <div className={mediaQueries.divider}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <Link href='/contactus' passHref>
+        <button className={`${mediaQueries.buttonsContainer}, ${mediaQueries.contactUsButton}`} style={styles.buttonContactUs}>
+          <FontAwesomeIcon icon={faViber} style={styles.icon} />
+          {/* <span style={styles.iconText}>Contact Us</span> */}
+          Contact Us For More Info.
+        </button>
+      </Link>
     </div>
   );
 };
 
 const styles = {
   card: {
+    width: '75%',
+    minHeight: '85vh',
+    height: 'auto',
     padding: '20px',
     display: 'flex',
     flexDirection: 'column',
-    border: '1px solid #4CAF50',
     borderRadius: '8px',
-    overflow: 'hidden',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
-    width: '100%',
-    // height:'auto',
     margin: '20px auto',
-    // fontFamily: 'Baskerville',
-    // fontFamily: 'Baskerville, serif',
     fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
     backgroundImage: `url(${bg2.src})`,
-    backgroundSize: 'cover', // Adjust to 'contain' if needed
+    backgroundSize: 'cover',
     backgroundSize: '100% 100%',
-    backgroundPosition: 'center', // Adjust as needed
-    backgroundRepeat: 'no-repeat', // Adjust as needed
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    position: 'relative',
   },
   circularImageContainer: {
     textAlign: 'center',
@@ -119,8 +126,7 @@ const styles = {
   },
   details: {
     padding: '20px',
-    textAlign: 'left',
-    textAlign: 'center', // Center content horizontally
+    textAlign: 'center',
   },
   name: {
     fontSize: '2em',
@@ -131,7 +137,6 @@ const styles = {
     fontSize: '0.8em',
     marginBottom: '8px',
     color: '#333',
-    // padding: '0 5px',
     whiteSpace: 'pre',
   },
   email: {
@@ -140,56 +145,59 @@ const styles = {
   motto: {
     textAlign: 'center',
     fontFamily: '__Parisienne_4197db',
-    fontSize: '25px',
+    fontSize: '22px',
     fontWeight: 600,
     fontStyle: 'italic',
     color: '#01683A',
-    // margin: '20px 0',
+    marginTop: 10,
   },
   buttonsContainer: {
-    // textAlign: 'center',
-    // marginTop: 'px',
-    marginBottom: '20px'
+    marginBottom: '20px',
   },
   button: {
-    backgroundColor: 'white',
-    padding: '10px 20px',
     margin: '0 auto 10px',
-    borderRadius: '5px',
     cursor: 'pointer',
     border: 'none',
     display: 'flex',
     alignItems: 'flex-start',
-    // width: '50%',
     width: '200px', 
     maxWidth: '100%',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
   icon: {
-    color: '#396482',
-    marginRight: '10px',
+    // color: '#01683A',
+    color: '#333',
+    marginRight: 4,
+    fontSize: 14,
   },
-  iconText: {
-    textAlign: 'center',
-    fontSize: '15px',
-    fontWeight: '600',
-  },
+  // iconText: {
+  //   textAlign: 'center',
+  //   fontSize: '20px',
+  //   fontWeight: '600',
+  //   textTransform: 'uppercase',
+  //   color: '#01683A',
+  //   fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
+  // },
   buttonContactUs: {
-    backgroundColor: 'white',
-    padding: '10px 20px',
-    margin: '20px auto 10px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    border: 'none',
+   // backgroundColor: '#01683A',
+    // backgroundColor: '#fff',
+    // borderRadius: 8,
+    // border: 0,
+    // padding: 10,
+    width: '40%',
+    // padding: '10px 14px',
+    // height: 44,
+    
+    // boxShadow: 'rgba(0, 0, 0, 0.1) 0px 2px 8px',
+    // cursor: 'pointer',
+
+    position: 'absolute',
+    left: '49.5%',
+    bottom: 40,
+    transform: 'translate(-50%, -50%)',
+
     display: 'flex',
-    alignItems: 'flex-start',
-    width: '200px',
-    maxWidth: '100%',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    textAlign: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
   },
-
 };
-
 export default MarkerComponent;

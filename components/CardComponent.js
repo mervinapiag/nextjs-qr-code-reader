@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import bg from './images/bg.png';
 import bg2 from './images/bg_2.png';
 import logo from './images/fl_logo.png';
@@ -9,7 +9,8 @@ import Link from 'next/link';
 // import '@fortawesome/fontawesome-svg-core/styles.css
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChrome, faFacebook, faTelegram, faViber, faWebflow } from '@fortawesome/free-brands-svg-icons';
+import { faChrome, faFacebook, faInstagram, faInstagramSquare, faSquareFacebook, faSquareYoutube, faTelegram, faViber, faWebflow, faYoutube, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
+import mediaQueries from '@/styles/MediaQueries.module.css';
 
 const parisienne  = Parisienne ({
   weight: "400",
@@ -18,6 +19,8 @@ const parisienne  = Parisienne ({
 });
 
 const CardComponent = ({ person }) => {
+  const [isMoreDetailsOpen, setIsMoreDetailsOpen] = useState(false);
+  const ckeditor_tbvContent = person.ckeditor_tbv;
 
   const imageUrl = person.picture?.url;
   // const apiUrl = `https://forestlakeparks-qr-code-production.up.railway.app${imageUrl}`;
@@ -32,86 +35,88 @@ const CardComponent = ({ person }) => {
 
   
   return (
-    <div style={{ ...styles.card}}>
-      <div style={styles.logoContainer}>
-        <Image
-        src={logo2}
-        width={120}
-        height={120}
-        alt="Picture of the author"
-      />
-      </div>
+    <div style={{ ...styles.card}} className={mediaQueries.card}>
+      {isMoreDetailsOpen ? (
+        <div className={mediaQueries.moreDetailsContainer} dangerouslySetInnerHTML={{ __html: ckeditor_tbvContent }} />
+      ) : (
+        <>
+          <div className={mediaQueries.logoContainer} style={styles.logoContainer}>
+            <Image
+              src={logo2}
+              width={200}
+              height={200}
+              className={mediaQueries.logo}
+              alt="Picture of the author"
+            />
+          </div>
 
-      <div style={styles.circularImageContainer}>
-        <Image
-          src={apiUrl}
-          width={100}
-          height={100}
-          alt="Picture of the author"
-          style={styles.circularImage}
-        />
-      </div>
+          <div style={styles.circularImageContainer}>
+            <Image
+              src={apiUrl}
+              width={100}
+              height={100}
+              alt="Picture of the author"
+              style={styles.circularImage}
+            />
+          </div>
+
+          <div style={styles.details}>
+            <h2 className={`${parisienne.className} ${mediaQueries.name}`}  style={styles.name}>{`${person.full_name}`}</h2>
+
+            <h3 className={mediaQueries.dateBornDeath} style={styles.date}>{`${formatDate(person.date_born)} - ${formatDate(person.date_died)}`}</h3>
+
+            <h3 className={mediaQueries.motto} style={styles.motto}>{`"${person.motto}"`}</h3>
+          </div>
+        </>
+      )}
     
-      <div style={styles.details}>
-        <h2 className={parisienne.className}  style={styles.name}>{`${person.full_name}`}</h2>
-        <h3 style={styles.date}>{`${formatDate(person.date_born)}   -   ${formatDate(person.date_died)}`}</h3>
-        <h3 style={styles.motto}>{`"${person.motto}"`}</h3>
-        
-        {/* <div style={styles.buttonsContainer}>
+      <button  
+        className={mediaQueries.viewMoreButton} 
+        onClick={() => setIsMoreDetailsOpen(!isMoreDetailsOpen)}
+      >
+        {isMoreDetailsOpen ? 'Hide' : `View`} more about {`${person.full_name}`}'s life. 
+      </button>
 
-           <Link href={person.facebook_url} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faFacebook} style={styles.icon} />
-              <span style={styles.iconText}>Facebook</span>
-            </button>
-          </Link>
+      {person.facebook_url && (
+          <div className={mediaQueries.iconWrapper}>
+            <div style={styles.iconContainer}>
+              <Link href={person.facebook_url} passHref>
+                <FontAwesomeIcon icon={faSquareFacebook} style={styles.fbIcon} />
+                <span style={styles.fbIconText}></span>
+              </Link>
+            </div>
 
-          <Link href={person.orbituary_page} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faChrome} style={styles.icon} />
-              <span>Orbituary Page</span>
-            </button>
-          </Link>
+            <div style={styles.iconContainer}>
+              <Link href={person.facebook_url} passHref>
+                <FontAwesomeIcon icon={faInstagramSquare} style={styles.fbIcon} />
+                <span style={styles.igIconText}></span>
+              </Link>
+            </div>
 
-          <Link href={person.contact_us} passHref>
-            <button style={styles.button}>
-              <FontAwesomeIcon icon={faViber} style={styles.icon} />
-              <span>Contact Us</span>
-            </button>
-          </Link>
-
-        </div> */}
-        {/* <div style={styles.fbIconContainer}>
-          <Link href={person.facebook_url} passHref>
-            <FontAwesomeIcon icon={faFacebook} style={styles.fbIcon} />
-            <span style={styles.fbIconText}></span>
-          </Link>
-        </div> */}
-        {person.facebook_url && (
-          <div style={styles.fbIconContainer}>
-            <Link href={person.facebook_url} passHref>
-              <FontAwesomeIcon icon={faFacebook} style={styles.fbIcon} />
-              <span style={styles.fbIconText}></span>
-            </Link>
+            <div style={styles.iconContainer}>
+              <Link href={person.facebook_url} passHref>
+                <FontAwesomeIcon icon={faSquareYoutube} style={styles.fbIcon} />
+                <span style={styles.ytIconText}></span>
+              </Link>
+            </div>
           </div>
         )}
-      </div>
     </div>
   );
 };
 
 const styles = {
   card: {
+    width: '75%',
+    minHeight: '85vh',
+    height: 'auto',
     padding: '20px',
     display: 'flex',
     flexDirection: 'column',
-    border: '1px solid #4CAF50',
     borderRadius: '8px',
-    overflow: 'hidden',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.3s ease-in-out',
     backgroundColor: 'white',
-    width: '100%',
     margin: '20px auto',
     fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
     backgroundImage: `url(${bg2.src})`,
@@ -119,6 +124,7 @@ const styles = {
     backgroundSize: '100% 100%',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    position: 'relative',
   },
   circularImageContainer: {
     textAlign: 'center',
@@ -129,8 +135,7 @@ const styles = {
     height: '150px',
     borderRadius: '50%',
     objectFit: 'cover',
-    border: '2px solid rgb(200, 178, 51)',
-    padding: '10px',
+    border: '3px solid rgb(200, 178, 51)',
   },
   logoContainer: {
     textAlign: 'center',
@@ -158,27 +163,19 @@ const styles = {
     textAlign: 'center', // Center content horizontally
   },
   name: {
-    fontSize: '2em',
+    fontSize: '3em',
+    fontWeight: 600,
     marginBottom: '2px',
     color: '#333',
-  },
-  date: {
-    fontSize: '15px',
-    marginBottom: '20px',
-    color: '#333',
-    whiteSpace: 'pre',
-    marginTop: '12px'
   },
   email: {
     color: '#555',
   },
   motto: {
-    textAlign: 'center',
-    fontFamily: 'Arial, sans-serif',
     fontSize: '15px',
-    fontStyle: 'italic',
-    color: '#555',
-    // margin: '20px 0',
+    fontWeight: 600,
+    textAlign: 'center',
+    color: '#333',
     marginTop: '30px',
     marginBottom: '50px',
     padding: '15px'
@@ -209,7 +206,7 @@ const styles = {
   iconText: {
     textAlign: 'center'
   },
-  fbIconContainer: {
+  iconContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -222,8 +219,16 @@ const styles = {
   },
   fbIconText: {
     fontSize: '30px',
-    color: '#555',
+    color: '#333',
   },
+  igIconText: {
+    fontSize: '30px',
+    color: '#333',
+  },
+  ytIconText: {
+    fontSize: '30px',
+    color: '#333',
+  }
 };
 
 export default CardComponent;

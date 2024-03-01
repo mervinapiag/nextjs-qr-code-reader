@@ -1,0 +1,158 @@
+.fullWidth {
+    width: 100%;
+}
+
+.formContainer {
+    background-color: #fff;
+    height: auto;
+    color: #333;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Archivo Black", sans-serif;
+}
+
+.formContainer form {
+    width: 600px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.formContainer form .logo {
+    margin: 0 auto;
+}
+
+.formContainer form h1 {
+    width: 100%;
+    text-align: center;
+    background-color: #00673D;
+
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 10px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.formContainer form label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #515151;
+}
+
+.formContainer .divFlex {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.formContainer .divFlexRow {
+    flex-direction: row;
+    gap: 15px;
+}
+
+.formContainer .buttonWrapper {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    max-width: 600px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.formContainer .buttonWrapper button,
+.formContainer .submitButton {
+    background-color: #fff;
+    color: #333;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.formContainer .buttonWrapper .addButton {
+    background-color: #515151;
+    color: #fff;
+}
+
+.formContainer .buttonWrapper .upgradeButton,
+.formContainer .submitButton {
+    background-color: #00673D;
+    color: #fff;
+}
+
+.formContainer .submitButton {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #01683f;
+    padding: 15px;
+    box-shadow: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.formContainer input, .formContainer textarea {
+    color: #333;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 1.5;
+    width: 100%;
+
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 0.375rem 0.75rem;
+    outline: none;
+    margin-top: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.formContainer textarea {
+    resize: none;
+    height: 120px;
+}
+
+@media (max-width: 600px) {
+    .formContainer {
+        padding: 20px 0;
+    }
+    .formContainer .buttonWrapper {
+        padding: 0;
+        width: 95%;
+    }
+    .formContainer .buttonWrapper button {
+        font-size: 14px;
+    }
+    .formContainer form {
+        width: 95%;
+    }
+    .formContainer form .submitButton {
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    form .divFlexRow {
+        flex-direction: column !important;
+        margin-top: 0 !important;
+    }
+}
