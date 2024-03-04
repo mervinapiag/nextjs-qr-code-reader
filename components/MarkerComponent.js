@@ -64,7 +64,7 @@ const MarkerComponent = ({ marker }) => {
         <button className={`${mediaQueries.buttonsContainer}, ${mediaQueries.contactUsButton}`} style={styles.buttonContactUs}>
           <FontAwesomeIcon icon={faViber} style={styles.icon} />
           {/* <span style={styles.iconText}>Contact Us</span> */}
-          Contact Us For More Info.
+          Contact Us
         </button>
       </Link>
     </div>
@@ -179,21 +179,10 @@ const styles = {
   //   fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
   // },
   buttonContactUs: {
-   // backgroundColor: '#01683A',
-    // backgroundColor: '#fff',
-    // borderRadius: 8,
-    // border: 0,
-    // padding: 10,
     width: '40%',
-    // padding: '10px 14px',
-    // height: 44,
-    
-    // boxShadow: 'rgba(0, 0, 0, 0.1) 0px 2px 8px',
-    // cursor: 'pointer',
-
     position: 'absolute',
     left: '49.5%',
-    bottom: 40,
+    bottom: 30,
     transform: 'translate(-50%, -50%)',
 
     display: 'flex',
