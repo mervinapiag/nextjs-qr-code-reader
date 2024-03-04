@@ -77,30 +77,34 @@ const CardComponent = ({ person }) => {
         {isMoreDetailsOpen ? 'Hide' : `View`} more about {`${person.full_name}`}'s life. 
       </button>
 
-      {person.facebook_url && (
+   
           <div className={mediaQueries.iconWrapper}>
-            <div style={styles.iconContainer}>
-              <Link href={person.facebook_url} passHref>
-                <FontAwesomeIcon icon={faSquareFacebook} style={styles.fbIcon} />
-                <span style={styles.fbIconText}></span>
-              </Link>
-            </div>
-
-            <div style={styles.iconContainer}>
-              <Link href={person.facebook_url} passHref>
-                <FontAwesomeIcon icon={faInstagramSquare} style={styles.fbIcon} />
-                <span style={styles.igIconText}></span>
-              </Link>
-            </div>
-
-            <div style={styles.iconContainer}>
-              <Link href={person.facebook_url} passHref>
-                <FontAwesomeIcon icon={faSquareYoutube} style={styles.fbIcon} />
-                <span style={styles.ytIconText}></span>
-              </Link>
-            </div>
+          {person.facebook_url && (
+              <div style={styles.iconContainer}>
+                <Link href={person.facebook_url} passHref>
+                  <FontAwesomeIcon icon={faSquareFacebook} style={styles.fbIcon} />
+                  <span style={styles.fbIconText}></span>
+                </Link>
+              </div>
+            )}
+             {person.youtube_url && (
+              <div style={styles.iconContainer}>
+                <Link href={person.facebook_url} passHref>
+                  <FontAwesomeIcon icon={faInstagramSquare} style={styles.fbIcon} />
+                  <span style={styles.igIconText}></span>
+                </Link>
+              </div>
+              )}
+            {person.instagram_url && (
+              <div style={styles.iconContainer}>
+                <Link href={person.facebook_url} passHref>
+                  <FontAwesomeIcon icon={faSquareYoutube} style={styles.fbIcon} />
+                  <span style={styles.ytIconText}></span>
+                </Link>
+              </div>
+            )}
           </div>
-        )}
+        
     </div>
   );
 };

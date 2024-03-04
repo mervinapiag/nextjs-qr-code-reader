@@ -26,17 +26,9 @@ const MarkerPage = observer(() => {
   useEffect(() => {
     const fetchPersonData = async () => {
       try {
-        // const fetchAPI = `http://localhost:1337/api/markers/${markerId}`;
-      store._getMarker({markerId: markerId}).then((res) => {
-        setMarker(res.data);
-      });
-
-      // store._getAnnouncment().then((res) => {
-      //   setAnnouncement(res.data)
-      // });
-        // const fetchAPI = `https://forestlake-markers-production.up.railway.app/api/markers/${markerId}`;
-        // const response = await fetch(fetchAPI);
-        // const data = await response.json();
+        store._getMarker({markerId: markerId}).then((res) => {
+          setMarker(res.data);
+        });
       } catch (error) {
         console.error('Error fetching person data:', error);
       }
