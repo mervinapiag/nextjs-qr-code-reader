@@ -143,7 +143,7 @@
     margin: 0 auto;
 }
 .viewMoreButton, .contactUsButton {
-    font-size: px;
+    font-size: 18px;
     font-weight: 900;
     color: #333;
 
@@ -243,7 +243,8 @@
     .text {
         margin-top: 0 !important;
     }
-    .deceasedButton {
+    .deceasedButton,
+    .contactUsButton {
         font-size: 20px !important;
     }
     .modalContent {
@@ -342,7 +343,8 @@
     }
     .card .buttonsContainer span,
     .card .deceasedButton span,
-    .deceasedButton {
+    .deceasedButton,
+    .contactUsButton {
         font-size: 16px !important;
     }
     .card .deceasedContainer .buttonsContainer {
