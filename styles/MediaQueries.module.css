@@ -53,7 +53,7 @@
     font-size: 11px !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
-    color: #404040 !important;
+    color: #333 !important;
 }
 .contactUsForm input, .contactUsForm textarea {
     color: #333 !important;
@@ -72,7 +72,7 @@
 .card .deceasedButton {
     font-size: 18px;
     font-weight: 900 !important;
-    color: #404040 !important;
+    color: #333 !important;
     background-color: #fff !important;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px !important;
     border-radius: 0 !important;
@@ -81,7 +81,6 @@
     cursor: pointer !important;
     margin: auto !important;
     width: 100%;
-    
 }
 .divider {
     display: flex;
@@ -144,10 +143,9 @@
     margin: 0 auto;
 }
 .viewMoreButton, .contactUsButton {
-    font-size: 16px;
+    font-size: px;
     font-weight: 900;
-    color: #404040;
-    text-transform: uppercase;
+    color: #333;
 
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px !important;
@@ -157,6 +155,8 @@
     cursor: pointer;
     width: auto;
     margin: auto;
+
+    font-family:'Times New Roman, sans-serif' !important;
 }
 .moreDetailsContainer {
     width: 80%;
@@ -166,7 +166,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    color: #404040;
+    color: #333;
     text-align: center;
     max-height: 580px;
     overflow: hidden;
@@ -243,7 +243,7 @@
     .text {
         margin-top: 0 !important;
     }
-    .deceasedButtonText {
+    .deceasedButton {
         font-size: 20px !important;
     }
     .modalContent {
@@ -343,7 +343,7 @@
     .card .buttonsContainer span,
     .card .deceasedButton span,
     .deceasedButton {
-        font-size: 14px !important;
+        font-size: 16px !important;
     }
     .card .deceasedContainer .buttonsContainer {
         width: auto !important;
