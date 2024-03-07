@@ -69,14 +69,15 @@ const CardComponent = ({ person }) => {
           </div>
         </>
       )}
-    
-      <button  
-        className={mediaQueries.viewMoreButton} 
-        onClick={() => setIsMoreDetailsOpen(!isMoreDetailsOpen)}
-      >
-        {isMoreDetailsOpen ? 'Hide' : `View`} more about {`${person.full_name}`}'s life. 
-      </button>
 
+      {ckeditor_tbvContent && (
+        <button  
+          className={mediaQueries.viewMoreButton} 
+          onClick={() => setIsMoreDetailsOpen(!isMoreDetailsOpen)}
+        >
+          {isMoreDetailsOpen ? 'Hide' : `View`} more about {`${person.full_name}`}'s life. 
+        </button>
+      )}
    
           <div className={mediaQueries.iconWrapper}>
           {person.facebook_url && (
