@@ -196,6 +196,15 @@
     line-height: 1.8 !important;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+.moreDetailsContainer iframe {
+    width:95%;
+    height: 300px;
+}
+.moreDetailsContainer div {
+    width: 100%;
+}
+
+
 
 
 @media (max-width: 768px) {
