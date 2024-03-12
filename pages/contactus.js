@@ -38,7 +38,7 @@ const ContactUs = () => {
         if (res.status) {
           setSuccessMessage("Form submitted successfully!");
           setName("");
-          setInquiryType("complaint");
+          setInquiryType("inquiries");
           setRentalDate("");
           setMessage("");
           setContactNumber("");
@@ -221,12 +221,13 @@ const ContactUs = () => {
               value={inquiryType}
               onChange={(e) => setInquiryType(e.target.value)}
             >
-              <option value="complaint">Complaint</option>
-              <option value="report_broken_marker">Report Broken Marker</option>
-              <option value="rental">Rental</option>
+              <option value="rental">Rentals</option>
               <option value="purchase_flower_candle">
                 Purchase Flowers and Candles
               </option>
+              <option value="report_broken_marker">Report Broken Marker</option>
+              <option value="inquiries">Inquiries</option>
+
             </select>
           </div>
 

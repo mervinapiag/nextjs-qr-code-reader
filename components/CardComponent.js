@@ -90,7 +90,7 @@ const CardComponent = ({ person }) => {
             )}
              {person.youtube_url && (
               <div style={styles.iconContainer}>
-                <Link href={person.facebook_url} passHref>
+                <Link href={person.youtube_url} passHref>
                   <FontAwesomeIcon icon={faInstagramSquare} style={styles.fbIcon} />
                   <span style={styles.igIconText}></span>
                 </Link>
@@ -98,7 +98,7 @@ const CardComponent = ({ person }) => {
               )}
             {person.instagram_url && (
               <div style={styles.iconContainer}>
-                <Link href={person.facebook_url} passHref>
+                <Link href={person.instagram_url} passHref>
                   <FontAwesomeIcon icon={faSquareYoutube} style={styles.fbIcon} />
                   <span style={styles.ytIconText}></span>
                 </Link>
