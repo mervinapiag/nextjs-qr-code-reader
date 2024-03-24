@@ -65,7 +65,7 @@ const MarkerPage = observer(() => {
 
         <div className={mediaQueries.modalContent} style={styles.modalContent}>
           <p style={styles.garethText}> 
-          Discover Forest Lake's Libre Burol Offer
+          <strong>Discover Forest Lake's Libre Burol Offer</strong>
           <br />  <br />
           Receive the following with every interment:
           <br />  <br />

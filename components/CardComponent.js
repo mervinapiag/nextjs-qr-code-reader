@@ -65,7 +65,9 @@ const CardComponent = ({ person }) => {
 
             <h3 className={mediaQueries.dateBornDeath} style={styles.date}>{`${formatDate(person.date_born)} - ${formatDate(person.date_died)}`}</h3>
 
-            <h3 className={mediaQueries.motto} style={styles.motto}>{`"${person.motto}"`}</h3>
+            {person.motto && (
+              <h3 className={mediaQueries.motto} style={styles.motto}>{`"${person.motto}"`}</h3>
+            )}
           </div>
         </>
       )}
