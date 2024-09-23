@@ -5,7 +5,7 @@ import Link from 'next/link';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import mediaQueries from '@/styles/MediaQueries.module.css'
-
+import { formatName } from '@/utils/formatName';
 const parisienne  = Parisienne ({
   weight: "400",
   display: "swap",
@@ -19,7 +19,7 @@ const MarkerComponent = ({ deceased }) => {
     return date.toLocaleDateString('en-US', options);
   };
 
-  const fullName = deceased.full_name;
+  const fullName = formatName(deceased.full_name);
 
   const urls = (deceasedId) => {
     return `/card/${deceased.id}`;

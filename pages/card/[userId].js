@@ -12,7 +12,8 @@ const CardPage = () => {
     const fetchPersonData = async () => {
       try {
         // const fetchAPI = `http://localhost:1337/api/deceaseds/${userId}`;
-        const fetchAPI = `https://api-qrcode.forestlake-uat.com/api/deceaseds/${userId}`;
+        const fetchAPI = `${process.env.NEXT_PUBLIC_API_URL}/api/deceaseds/${userId}`;
+        // const fetchAPI = `https://api-pangasinan-qrcode.forestlake-uat.com/api/deceaseds/${userId}`;
         const response = await fetch(fetchAPI);
         const data = await response.json();
         setPerson(data);

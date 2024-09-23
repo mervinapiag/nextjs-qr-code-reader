@@ -6,7 +6,7 @@ import axios from "axios";
 export class Main {
   localMode = false;
   // baseURL = "https://forestlakeparks-qr-code-production.up.railway.app";
-  baseURL = "https://api-qrcode.forestlake-uat.com";
+  baseURL = process.env.NEXT_PUBLIC_API_URL;
     //  baseURL = "http://localhost:1337";
 
   constructor() {

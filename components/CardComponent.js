@@ -11,7 +11,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChrome, faFacebook, faInstagram, faInstagramSquare, faSquareFacebook, faSquareYoutube, faTelegram, faViber, faWebflow, faYoutube, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
 import mediaQueries from '@/styles/MediaQueries.module.css';
-
+import { formatName } from '@/utils/formatName';
 const parisienne  = Parisienne ({
   weight: "400",
   display: "swap",
@@ -23,9 +23,8 @@ const CardComponent = ({ person }) => {
   const ckeditor_tbvContent = person.ckeditor_tbv;
 
   const imageUrl = person.picture?.url;
-  // const apiUrl = `https://forestlakeparks-qr-code-production.up.railway.app${imageUrl}`;
-  const apiUrl = `https://api-qrcode.forestlake-uat.com${imageUrl}`;
-  // const apiUrl = `http://localhost:1337${imageUrl}`;
+  // const apiUrl = `https://api-pangasinan-qrcode.forestlake-uat.com${imageUrl}`;
+  const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}${imageUrl}`;
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -61,7 +60,7 @@ const CardComponent = ({ person }) => {
           </div>
 
           <div style={styles.details}>
-            <h2 className={`${parisienne.className} ${mediaQueries.name}`}  style={styles.name}>{`${person.full_name}`}</h2>
+            <h2 className={`${parisienne.className} ${mediaQueries.name}`}  style={styles.name}>{`${formatName(person.full_name)}`}</h2>
 
             <h3 className={mediaQueries.dateBornDeath} style={styles.date}>{`${formatDate(person.date_born)} - ${formatDate(person.date_died)}`}</h3>
 

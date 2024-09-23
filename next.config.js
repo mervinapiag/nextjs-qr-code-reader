@@ -3,12 +3,17 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
    domains: [
-    'strapi-qr-code-generator-production.up.railway.app', 
     'localhost',
-    'forestlake-markers-production.up.railway.app',
-    'forestlakeparks-qr-code-production.up.railway.app',
-    'api-qrcode.forestlake-uat.com',
+    'api-pangasinan-qrcode.forestlake-uat.com',
+    'api-malasiqui-qrcode.forestlake-uat.com',
+    'api-san-miguel-bulacan-qrcode.forestlake-uat.com',
+    'api-gensan-qrcode.forestlake-uat.com',
+    'api-orani-qrcode.forestlake-uat.com',
+    'api-qrcode.forestlake-uat.com'
   ],
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
 }
 
