@@ -4,12 +4,12 @@ const nextConfig = {
   images: {
    domains: [
     'localhost',
-    'api-pangasinan-qrcode.forestlake-uat.com',
-    'api-malasiqui-qrcode.forestlake-uat.com',
-    'api-san-miguel-bulacan-qrcode.forestlake-uat.com',
-    'api-gensan-qrcode.forestlake-uat.com',
-    'api-orani-qrcode.forestlake-uat.com',
-    'api-qrcode.forestlake-uat.com'
+    'api-pangasinan-qrcode.forestlakeparks.com',
+    'api-malasiqui-qrcode.forestlakeparks.com',
+    'api-san-miguel-bulacan-qrcode.forestlakeparks',
+    'api-gensan-qrcode.forestlakeparks.com',
+    'api-orani-qrcode.forestlakeparks.com',
+    'api-binan-qrcode.forestlakeparks.com'
   ],
   },
   env: {
