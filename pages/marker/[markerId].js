@@ -29,6 +29,16 @@ const MarkerPage = observer(() => {
         store._getMarker({markerId: markerId}).then((res) => {
           setMarker(res.data);
         });
+
+        store._getAnnouncement().then((res) => {
+          console.log(res.data);
+          if(!res.data) {
+            setModalIsOpen(false);
+          } else {
+            setAnnouncement(res.data);
+          }
+        });
+
       } catch (error) {
         console.error('Error fetching person data:', error);
       }
@@ -49,6 +59,7 @@ const MarkerPage = observer(() => {
 
   return (
     <div style={styles.pageContainer}>
+      
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -64,8 +75,8 @@ const MarkerPage = observer(() => {
         </div>
 
         <div className={mediaQueries.modalContent} style={styles.modalContent}>
-          <p style={styles.garethText}> 
-          <strong>Discover Forest Lake's Libre Burol Offer</strong>
+          <p style={styles.garethText} dangerouslySetInnerHTML={{ __html: announcement?.content }}> 
+          {/* <strong>Discover Forest Lake's Libre Burol Offer</strong>
           <br />  <br />
           Receive the following with every interment:
           <br />  <br />
@@ -73,7 +84,7 @@ const MarkerPage = observer(() => {
               <strong>b</strong>. Body Retrieval and Embalming<br />
               <strong>c</strong>. 4 Days and 3 Nights<br />
               <strong>d</strong>. Funeral Hearse upon actual interment<br /><br />
-              For any questions, you may call us at <strong>0917-888-9955</strong> or <strong>0918-824-2735</strong>
+              For any questions, you may call us at <strong>0917-888-9955</strong> or <strong>0918-824-2735</strong> */}
           </p>
 
           <div style={styles.managementText}>

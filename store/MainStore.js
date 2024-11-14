@@ -38,10 +38,10 @@ export class Main {
       });
   };
 
-  _getAnnouncment = async () => {
+  _getAnnouncement = async () => {
     let config = {
       method: "get",
-      url: `${this.baseURL}/api/announcements/1`,
+      url: `${this.baseURL}/api/announcements`,
     };
 
     return axios
