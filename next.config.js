@@ -9,7 +9,8 @@ const nextConfig = {
     'api-san-miguel-bulacan-qrcode.forestlakeparks',
     'api-gensan-qrcode.forestlakeparks.com',
     'api-orani-qrcode.forestlakeparks.com',
-    'api-binan-qrcode.forestlakeparks.com'
+    'api-binan-qrcode.forestlakeparks.com',
+    'api-bayambang-qrcode.forestlakeparks.com'
   ],
   },
   env: {
