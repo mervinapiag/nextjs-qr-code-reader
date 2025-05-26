@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect ,useContext } from 'react';
 import bg from './images/bg.png';
 import bg2 from './images/bg_2.png';
 import logo from './images/fl_logo.png';
@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChrome, faFacebook, faInstagram, faInstagramSquare, faSquareFacebook, faSquareYoutube, faTelegram, faViber, faWebflow, faYoutube, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
 import mediaQueries from '@/styles/MediaQueries.module.css';
 import { formatName } from '@/utils/formatName';
+import MainStore from '@/store/MainStore';
 const parisienne  = Parisienne ({
   weight: "400",
   display: "swap",
@@ -21,6 +22,8 @@ const parisienne  = Parisienne ({
 const CardComponent = ({ person }) => {
   const [isMoreDetailsOpen, setIsMoreDetailsOpen] = useState(false);
   const ckeditor_tbvContent = person.ckeditor_tbv;
+  const store = useContext(MainStore);
+  const [messages, setMessages] = useState(null);
 
   const imageUrl = person.picture?.url;
   // const apiUrl = `https://api-pangasinan-qrcode.forestlake-uat.com${imageUrl}`;
@@ -32,6 +35,27 @@ const CardComponent = ({ person }) => {
     return date.toLocaleDateString('en-US', options);
   };
 
+  useEffect(() => {
+    const fetchPersonData = async () => {
+      try {
+        store._getTributeMessages({deceasedId: person.id}).then((res) => {
+          setMessages(res.data);
+        });
+
+      } catch (error) {
+        console.error('Error fetching person data:', error);
+      }
+    };
+
+    if (person.id) {
+      fetchPersonData();
+      console.log(messages?.length > 0)
+    }
+  }, [person.id]);
+
+  const urls = (deceasedId) => {
+    return `/tribute-wall/${deceasedId}`;
+  }
   
   return (
     <div style={{ ...styles.card}} className={mediaQueries.card}>
@@ -67,6 +91,18 @@ const CardComponent = ({ person }) => {
             {person.motto && (
               <h3 className={mediaQueries.motto} style={styles.motto}>{`"${person.motto}"`}</h3>
             )}
+            {
+              messages?.length > 0 && (
+              <div className={mediaQueries.buttonsContainer} style={styles.buttonsContainer}>
+                <Link href={urls(person.id)} passHref>
+                  <button className={mediaQueries.deceasedButton} style={styles.button}>
+                    Tribute Message
+                  </button>
+                </Link>
+              </div>
+              )
+            }
+        
           </div>
         </>
       )}
@@ -187,23 +223,18 @@ const styles = {
     padding: '15px'
   },
   buttonsContainer: {
-    // textAlign: 'center',
-    marginTop: '30px', // Adjust as needed
-    marginBottom: '50px'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 10,
+
+    textAlign: 'center',
+    padding: 0,
+    width: '100%',
   },
   button: {
-    backgroundColor: 'white',
-    padding: '10px 20px',
-    margin: '0 auto 10px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    border: 'none',
-    display: 'flex',
-    alignItems: 'flex-start',
-    // width: '50%',
-    width: '200px', // Fixed width or adjust as needed
-    maxWidth: '100%', // Ensure it doesn't exceed the container's width
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
   },
   icon: {
     color: '#396482',

@@ -92,6 +92,24 @@ export class Main {
         return error;
       });
   };
+
+  _getTributeMessages = async (params) => {
+    
+    let config = {
+      method: "get",
+      url: `${this.baseURL}/api/qr/tribute-messages/${params.deceasedId}`,
+    };
+
+    return axios
+      .request(config)
+      .then((res) => {
+        return res;
+      })
+      .catch((e) => {
+        console.log(e);
+        return e;
+      });
+  };
 }
 
 export default createContext(new Main());
